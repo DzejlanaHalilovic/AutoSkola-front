@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+
+  <div class="d-flex flex-column bd-highlight mb-3" >
+    <div class="carousel">
+      <div *ngFor="let imagePath of imagePaths; let i = index" class="carousel-item" [class.active]="i === currentImageIndex">
+        <img [src]="imagePath" class="d-block w-100 carousel-image" alt="Slika" (click)="changeImage(i)">
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" (click)="prevImage()" >
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" (click)="nextImage()" >
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+  <div class="card1">
+    <div class="card-body">
+      <h1 class="display-5 ml-5 text-center">Dobrodošli u našu auto školu!</h1>
+      <p class="lead text-center mb-0" id="welcome-text">Vaša avantura na putu prema vozačkoj dozvoli započinje ovdje, u našem ugodnom svijetu sigurne vožnje. Auto škola je mjesto gdje se snovi pretvaraju u stvarnost, gdje se stječu vještine koje će vas pratiti cijeli život. Uzbuđenje vožnje, slobodu istraživanja i samopouzdanje za volanom - sve to očekuje vas kod nas.</p>
+      <p class="text-center ">Pridružite nam se i doživite vozačku avanturu života. Vaša vozačka dozvola je samo korak od vas i mi ćemo biti s vama svaki korak tog puta.</p>
+      <p class="lead text-center">
+        <a class="btn btn-primary btn-lg"  href="http://localhost:4200/about"  role="button" id="moreAbout">Learn More</a>
+      </p>
+    </div>
+  </div>
+  <div class="container overflow-hidden mb-5">
+    <div class="row gx-5">
+      <div class="col">
+       <div class="p-3 border bg-light text-center" id="card">
+         <h2 class="mb-4" style="font-size: 24px; font-weight: bold;"> Korak po korak, vozimo vas prema vašim snovima.
+        </h2>
+         Uzbuđenje vožnje, slobodu istraživanja i sigurnost na cestama - sve to čeka vas kod nas. Naša auto škola pruža vam stručne instruktore, moderna vozila i podršku koja vam je potrebna kako biste postali samopouzdani vozači. Dozvolite nam da vam pomognemo ostvariti vašu vozačku dozvolu i otvoriti vrata neovisnosti na cestama.       </div>
+      </div>
+      <div class="col">
+        <div class="p-3 border bg-light text-center" id="card">
+          <h2 class="mb-4" style="font-size: 24px; font-weight: bold;">Otkrijte Čaroliju Vožnje</h2>
+          Naš tim stručnih instruktora ne samo da će vas naučiti pravilima vožnje, već će vas nadahnuti samopouzdanjem i osnažiti vas da preuzmete kontrolu nad volanom. Uz njihovu podršku, svaka vožnja postaje prilika za učenje, rast i stjecanje vještina koje će vas pratiti cijeli život.        </div>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>

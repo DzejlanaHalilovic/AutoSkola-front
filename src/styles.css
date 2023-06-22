@@ -1,1 +1,64 @@
+
+
 /* You can add global styles to this file, and also import other style files */
+@import "~bootstrap/dist/css/bootstrap.css";
+
+.navbar
+{
+  background-color: #AFBDD2
+}
+
+
+.nav-link
+{
+  font-size: 20px;
+  color: white;
+}
+
+
+
+.nav-item button
+{
+  border-radius: 3px;
+  background-color: rgb(170, 166, 166);
+  border: none;
+  width: 80px;
+}
+
+.nav-item button:hover{
+  background-color: rgba(146, 136, 136, 0.884);
+}
+
+.loginCard
+{
+  margin: auto;
+  width: 50%;
+  background-color: rgba(193, 193, 194, 0.308);
+  height: auto;
+  padding: 20px;
+  border-radius: 3px;
+}
+
+.vh-100 {
+  max-height: 80vh;
+}
+
+
+
+
+#exampleCheck1
+{
+  margin-top: 10px;
+}
+
+body
+{
+  background-color: #eee;
+}
+
+button
+{
+  border: none;
+}
+
+
