@@ -8,13 +8,17 @@ import { FormsModule, ReactiveFormsModule  } from '@angular/forms';
 import { HomeComponent } from './home/home.component';
 import { NavigationComponent } from './navigation/navigation.component';
 import { AboutComponent } from './about/about.component';
+import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     NavigationComponent,
-    AboutComponent
+    AboutComponent,
+    LoginComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
@@ -24,7 +28,9 @@ import { AboutComponent } from './about/about.component';
     RouterModule.forRoot([
 
       {path:'',component:HomeComponent},
-      {path:'about',component:AboutComponent}
+      {path:'about',component:AboutComponent},
+      {path:'register',component:RegisterComponent},
+      {path:'login',component:LoginComponent}
 
     ])
   ],
