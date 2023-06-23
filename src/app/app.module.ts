@@ -10,6 +10,12 @@ import { NavigationComponent } from './navigation/navigation.component';
 import { AboutComponent } from './about/about.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
+import { ProfileComponent } from './profile/profile.component';
+import { UserlistComponent } from './userlist/userlist.component';
+import { UpdateuserComponent } from './updateuser/updateuser.component';
+import { ControlComponent } from './control/control.component';
+import { StoreModule } from '@ngrx/store';
+import { userReducer } from './store/reducers/user.reducer';
 
 @NgModule({
   declarations: [
@@ -18,13 +24,18 @@ import { RegisterComponent } from './register/register.component';
     NavigationComponent,
     AboutComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    ProfileComponent,
+    UserlistComponent,
+    UpdateuserComponent,
+    ControlComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
+    StoreModule.forRoot({user: userReducer}),
     RouterModule.forRoot([
 
       {path:'',component:HomeComponent},

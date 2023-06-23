@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { LoginService } from '../login.service';
 import { Router } from '@angular/router';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Store } from '@ngrx/store';
+import { User } from '../interfaces/User';
+import { login } from '../store/actions/user.actions';
 
 @Component({
   selector: 'app-login',
@@ -15,7 +18,7 @@ export class LoginComponent implements OnInit {
   error: boolean = false
   errorMsg : any = {}
   userInfo?: any
-  constructor(private loginService:LoginService,private router:Router) { }
+  constructor(private loginService:LoginService,private router:Router, private store: Store<{user: User}>) { }
   passwordPattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
 
   ngOnInit(): void {
@@ -42,9 +45,9 @@ export class LoginComponent implements OnInit {
     }
     this.loginService.getCredentials(user)
       .subscribe(res => {
-       // this.store.dispatch(login(res))
-        //this.credentials = res;
-         localStorage.setItem('token', this.credentials.token);
+        this.store.dispatch(login(res))
+        this.credentials = res;
+         //localStorage.setItem('token', this.credentials.token);
         localStorage.setItem('user', JSON.stringify(res));
         const token = this.credentials.token;
         this.router.navigate([''])
