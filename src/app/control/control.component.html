@@ -1,1 +1,69 @@
-<p>control works!</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <!-- USERI -->
+  <div class="container">
+    <div class="row">
+      <div class="table-responsive" >
+        <div class="col-12 mb-3 mb-lg-5" >
+            <div class="card table-nowrap table-card" style="overflow-x: scroll; min-width: 400px;">
+                <div class="card-header d-flex justify-content-between align-items-center">
+                    <h5 class="mb-0">Users</h5>
+                </div>
+                    <table class="table mb-0">
+                        <thead class="small text-uppercase bg-body text-muted">
+                            <tr>
+                                <th></th>
+                                <th>User</th>
+                                <th>Surname</th>
+                                <th>Email</th>
+                                <th>Broj Telefona</th>
+                               <th> Tip kategorije</th>
+                                <th class="text-end">Update</th>
+                                <th class="text-end">Delete</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="align-middle"  *ngFor="let user of users"  >
+                                <td>
+                                  <i class="fas fa-user"></i>
+
+                                </td>
+                                <td>{{user?.ime}}</td>
+                                <td>
+                                    <span class="d-inline-block align-middle">{{user?.prezime}}</span>
+                                </td>
+                                <td>{{user?.email}}</td>
+                                <td><span>{{user?.brojTelefona}}</span></td>
+                                  <td>{{user?.tipKategorije}}</td>
+
+                                <td class="text-end">
+                                    <div class="drodown">
+                                        <button (click)="updateUser(user?.id)" >Update</button>
+                                    </div>
+                                </td>
+                                <td class="text-end">
+                                  <div class="drodown">
+                                      <button (click)="deleteUser(user?.id)">Delete</button>
+                                  </div>
+                              </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <ng-template #emptyList>
+          <h1 style="display: flex; justify-content: center; margin-top: 20%;" >The list is empty</h1>
+        </ng-template>
+    </div>
+</div>
+
+
+</body>
+</html>

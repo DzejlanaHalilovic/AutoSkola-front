@@ -136,6 +136,22 @@
                       </div>
                     </div>
                   </div>
+                  <div *ngIf="id === 2">
+                    <div class="d-flex flex-row align-items-center mb-4">
+                      <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
+                      <div class="form-outline flex-fill mb-0">
+                        <div class="mb-3">
+                          <label for="" class="form-label">Iaberi instuktora</label>
+                          <select class="form-select form-select-lg" name="" id="selectinstuktor" (change)="izaberiinstuktora()" >
+                            <option value="-1" selected>Choose instuktor</option>
+                            <option *ngFor="let place of instuktori" value="{{place.id}}">{{place.ime}} {{place.prezime}}</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+
+                  </div>
+
                   <div class="d-flex flex-row align-items-center mb-4">
                     <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
                     <div class="form-outline flex-fill mb-0">

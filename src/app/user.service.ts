@@ -17,6 +17,9 @@ export class UserService {
   createUser(user: any){
     return this.http.post<any>(`${this.url}/api/Auth/register`,user);
   }
+  createinstuktorraspored(instruktor:any){
+    return this.http.post<any>(`${this.url}/api/Raspored/korisnici`,instruktor);
+  }
 
   getLearnerList(){
     return this.http.get<any>(`${this.url}/polaznik-list`);
@@ -56,5 +59,7 @@ export class UserService {
   getAllKategories(){
     return this.http.get<any>(`${this.url}/api/Kategorija`);
   }
+
+
 
 }

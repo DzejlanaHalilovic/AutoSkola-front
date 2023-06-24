@@ -41,7 +41,10 @@ import { userReducer } from './store/reducers/user.reducer';
       {path:'',component:HomeComponent},
       {path:'about',component:AboutComponent},
       {path:'register',component:RegisterComponent},
-      {path:'login',component:LoginComponent}
+      {path:'login',component:LoginComponent},
+      {path:'profile',component:ProfileComponent},
+      {path:'user-list',component:UserlistComponent},
+      {path:'control',component:ControlComponent}
 
     ])
   ],

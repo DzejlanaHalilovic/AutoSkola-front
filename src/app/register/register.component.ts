@@ -13,7 +13,7 @@ export class RegisterComponent implements OnInit {
 
   constructor(private userService:UserService, private kategorijaService:KategorijeService) { }
     roles: any = {}
-    id:number = 1;
+    id:number = 14;
     kategorije: any = {}
     idkategorije:number = 2;
     response : any = {}
@@ -40,7 +40,18 @@ export class RegisterComponent implements OnInit {
       console.log(error);
     })
 
+    this.userService.getInstructorList()
+    .subscribe((res:any) => {
+      this.instuktori = res;
+      console.log(this.instuktori[0].idd, "to je id")
+    },
+    error => {
+      console.log(error
+        )
+    })
+
   }
+  idd : number = -1;
 
   registerForm = new FormGroup({
     name:new FormControl('',[Validators.required, Validators.minLength(3),CustomValidator.neMozeRazmake]),
@@ -93,6 +104,8 @@ export class RegisterComponent implements OnInit {
         role:this.id,
         kategorijaId:this.idkategorije
       }
+
+
       this.userService.createUser(user)
       .subscribe(res => {
         console.log(res);
@@ -103,6 +116,10 @@ export class RegisterComponent implements OnInit {
         this.error = true;
       })
     }
+    showInstructorField: boolean = false;
+    idinstuktora:number = 2
+    instuktori:any = {};
+
 
 
     izaberirolu(){
@@ -114,5 +131,19 @@ export class RegisterComponent implements OnInit {
       console.log("kategorija");
       this.idkategorije = +(document.getElementById('selectKategorija') as HTMLInputElement).value;
       console.log(this.idkategorije);
+    }
+    izaberiinstuktora(){
+      console.log("instuktori");
+      this.idinstuktora = +(document.getElementById('selectinstuktor')as HTMLInputElement).value;
+      console.log(this.idinstuktora);
+      let proba = {
+        instruktorId :this.idinstuktora,
+        polaznikId:this.id
+
+      }
+      this.userService.createinstuktorraspored(proba)
+      .subscribe(res =>
+        console.log(res),error => console.log(error));
+
     }
 }

@@ -1,1 +1,31 @@
-<p>profile works!</p>
+<div class="container db-social">
+  <div class="jumbotron jumbotron-fluid"></div>
+  <div class="container-fluid">
+      <div class="row justify-content-center">
+          <div class="col-xl-12">
+              <div class="widget head-profile has-shadow">
+                  <div class="widget-body pb-0">
+                      <div class="row d-flex align-items-center">
+                          <div class="col-xl-4 col-md-4 d-flex justify-content-lg-start justify-content-md-start justify-content-center">
+                          </div>
+                          <div class="col-xl-4 col-md-4 d-flex justify-content-center">
+
+                              <div class="infos">
+                                  <h2>{{user.painter?.ime}} {{user.painter?.prezime}}</h2>
+                                  <!-- <div>{{user.painter?.datumRodjenja }}</div> -->
+                                  <div>Broj telefona: {{user.painter?.brojTelefona}}</div>
+                                  <p><b>Email:</b> {{user.painter?.email}}</p>
+                                  <button class="me-2" (click)="updateUser(user.painter?.id)">Update profile</button>
+                                  <button (click)="deleteUser(user.painter.id)">Delete profile</button>
+                              </div>
+                          </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+     </div>
+
+
+
+

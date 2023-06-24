@@ -1,1 +1,144 @@
-<p>userlist works!</p>
+
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+
+</head>
+<body>
+  <div class="container">
+    <div class="row">
+      <div class="table-responsive">
+        <div class="col-12 mb-3 mb-lg-1"  *ngIf="learner.length > 0" >
+            <div class="card table-nowrap table-card" style="overflow-x: scroll; min-width: 400px;">
+                <div class="card-header d-flex justify-content-between align-items-center">
+                    <h5 class="mb-0">Polaznici</h5>
+                    <a href="#!" class="btn btn-light btn-sm">View All</a>
+                </div>
+                    <table class="table mb-0">
+                        <thead class="small text-uppercase bg-body text-muted">
+                            <tr>
+                                <th>Name</th>
+                                <th>Surname</th>
+                                <th>Email</th>
+                                <th>Phone number</th>
+                                <th>Kategorija</th>
+                                <th>User</th>
+                                <th class="text-end">Accept</th>
+                                <th class="text-end">Decline</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="align-middle"  *ngFor="let jury of learner" >
+                                <td>
+                                    <div class="d-flex align-items-center">
+                                        <img src="assets/images/user.jpg" class="avatar sm rounded-pill me-0 flex-shrink-0" alt="Customer">
+                                        <div>
+                                            <div class="h6 mb-0 lh-1">{{jury.ime}} </div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                  <span class="d-inline-block align-middle">{{jury?.prezime}}</span>
+                              </td>
+
+                                <td>{{jury.email}}</td>
+                                <td>
+                                    <span class="d-inline-block align-middle">{{jury?.brojTelefona}}</span>
+                                </td>
+                                <td>
+                                    <span class="d-inline-block align-middle">{{jury?.tipKategorije}}</span>
+                                </td>
+
+                                <td>Polaznik</td>
+                                <td class="text-end">
+                                    <div class="drodown">
+                                        <button (click)="acceptUser(jury?.id)">Accept</button>
+                                    </div>
+                                </td>
+                                <td class="text-end">
+                                  <div class="drodown">
+                                      <button (click)="declineUser(jury?.id)">Decline</button>
+                                  </div>
+                              </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+          <div class="row">
+            <div class="table-responsive">
+              <div class="col-12 mb-3 mb-lg-5"  *ngIf="instuctor.length > 0; else emptyList" >
+                  <div class="card table-nowrap table-card" style="overflow-x: scroll; min-width: 400px;">
+                      <div class="card-header d-flex justify-content-between align-items-center">
+                          <h5 class="mb-0">Polaznici</h5>
+                          <a href="#!" class="btn btn-light btn-sm">View All</a>
+                      </div>
+                          <table class="table mb-0">
+                              <thead class="small text-uppercase bg-body text-muted">
+                                  <tr>
+                                      <th>Name</th>
+                                      <th>Surname</th>
+                                      <th>Email</th>
+                                      <th>Phone number</th>
+                                      <th>User</th>
+                                      <th class="text-end">Accept</th>
+                                      <th class="text-end">Decline</th>
+                                  </tr>
+                              </thead>
+                              <tbody>
+                                  <tr class="align-middle"  *ngFor="let jury of instuctor" >
+                                      <td>
+                                          <div class="d-flex align-items-center">
+                                              <img src="assets/images/user.jpg" class="avatar sm rounded-pill me-0 flex-shrink-0" alt="Customer">
+                                              <div>
+                                                  <div class="h6 mb-0 lh-1">{{jury.ime}} </div>
+                                              </div>
+                                          </div>
+                                      </td>
+                                      <td>
+                                        <span class="d-inline-block align-middle">{{jury?.prezime}}</span>
+                                    </td>
+
+                                      <td>{{jury.email}}</td>
+                                      <td>
+                                          <span class="d-inline-block align-middle">{{jury?.brojTelefona}}</span>
+                                      </td>
+
+                                      <td>Instuctor</td>
+                                      <td class="text-end">
+                                          <div class="drodown">
+                                              <button (click)="acceptUser(jury?.id)">Accept</button>
+                                          </div>
+                                      </td>
+                                      <td class="text-end">
+                                        <div class="drodown">
+                                            <button (click)="declineUser(jury?.id)">Decline</button>
+                                        </div>
+                                    </td>
+                                  </tr>
+                              </tbody>
+                          </table>
+                      </div>
+                  </div>
+              </div>
+          </div>
+        </div>
+
+
+
+        <ng-template #emptyList>
+          <h1 style="display: flex; justify-content: center; margin-top: 20%;" >The list is empty</h1>
+        </ng-template>
+    </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,36 @@
+body{margin-top:20px;
+  background:#eee;
+  }
+  .card {
+      box-shadow: 0 20px 27px 0 rgb(0 0 0 / 5%);
+      margin-top: 7%;
+  }
+  .avatar.sm {
+      width: 3.25rem;
+      height: 3.25rem;
+      font-size: .818125rem;
+  }
+  .table-nowrap .table td, .table-nowrap .table th {
+      white-space: nowrap;
+  }
+  .table>:not(caption)>*>* {
+      padding: 0.75rem 1.25rem;
+      border-bottom-width: 1px;
+  }
+  table th {
+      font-weight: 600;
+      background-color: #eeecfd !important;
+  }
+
+  button
+
+  {
+    padding: 7px;
+    border-radius: 3px;
+    background-color: #eeecfd ;
+    border: 0.5px solid gainsboro;
+  }
+
+  button:hover{
+    background-color: rgb(218, 211, 211);
+  }
