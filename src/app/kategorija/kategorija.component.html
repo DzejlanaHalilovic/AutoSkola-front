@@ -1,0 +1,43 @@
+<div class="container">
+  <div class="card p-4 m-3">
+    <h2 class="mb-4 text-center">Dodaj kategoriju</h2>
+    <form [formGroup]="forma" (ngSubmit)="dodajKategoriju()" class="d-flex flex-column align-items-center">
+      <div class="mb-3 d-flex flex-column align-items-center">
+        <label for="tip" class="form-label">Tip kategorije</label>
+        <input type="text" class="form-control custom-input" id="tip" formControlName="tip" required>
+        <div class="invalid-feedback" *ngIf="tip?.invalid && tip?.touched">
+          Unesite tip kategorije.
+        </div>
+      </div>
+      <button type="submit" class="btn btn-primary">Dodaj</button>
+    </form>
+  </div>
+</div>
+
+
+<div class="container">
+  <div class="card p-4 m-3">
+    <h2 class="mb-4 text-center">Dostupne kategorije</h2>
+  <div class="table-responsive d-flex justify-content-center align-items-center">
+    <table class="table table-striped table-hover table-borderless table-primary align-middle" style="max-width: 400px;">
+      <caption class="table-light"></caption>
+      <thead class="table-light">
+        <tr>
+          <th>Tip Kategorije</th>
+          <th>Obrisi</th>
+        </tr>
+      </thead>
+      <tbody class="table-group-divider">
+        <tr class="table-primary" *ngFor="let item of kategorije">
+          <td scope="row">{{ item.tip }}</td>
+          <td>
+            <button class="btn btn-primary" (click)="brisiKategoriju(item.id)">Brisi</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+
+

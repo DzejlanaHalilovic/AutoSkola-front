@@ -17,6 +17,8 @@ import { ControlComponent } from './control/control.component';
 import { StoreModule } from '@ngrx/store';
 import { userReducer } from './store/reducers/user.reducer';
 import { AdminpageComponent } from './adminpage/adminpage.component';
+import { KategorijaComponent } from './kategorija/kategorija.component';
+import { RasporedComponent } from './raspored/raspored.component';
 
 @NgModule({
   declarations: [
@@ -30,8 +32,10 @@ import { AdminpageComponent } from './adminpage/adminpage.component';
     UserlistComponent,
     UpdateuserComponent,
     ControlComponent,
-    AdminpageComponent
-  ],
+    AdminpageComponent,
+    KategorijaComponent,
+    RasporedComponent
+,  ],
   imports: [
     BrowserModule,
     FormsModule,
@@ -47,7 +51,9 @@ import { AdminpageComponent } from './adminpage/adminpage.component';
       {path:'profile',component:ProfileComponent},
       {path:'user-list',component:UserlistComponent},
       {path:'control',component:ControlComponent},
-      {path:'dodela',component:AdminpageComponent}
+      {path:'dodela',component:AdminpageComponent},
+      {path:'kategorija',component:KategorijaComponent},
+      {path:'raspored',component:RasporedComponent}
 
     ])
   ],

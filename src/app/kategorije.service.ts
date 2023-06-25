@@ -11,4 +11,16 @@ export class KategorijeService {
   getAllKategories(){
     return this.http.get<any>(`${this.url}/api/Kategorija`);
   }
+
+  createKategorija(kategorija:any){
+    return this.http.post<any>(`${this.url}/api/Kategorija`,kategorija)
+  }
+
+  deleteKategorija(id:number){
+    return this.http.delete<any>(`${this.url}/api/Kategorija/${id}`);
+  }
+
+  getByIdKategorija(id:any){
+    return this.http.get<any>(`${this.url}/api/Kategorija/${id}`);
+  }
 }

@@ -70,6 +70,10 @@ export class UserService {
   getkategorijauser(tipKategorije: string){
     return this.http.get<any>(`${this.url}//api/User/kategorija?tipKategorije=${tipKategorije}`);
   }
+
+  getPolaznikSaInstuktorom(){
+    return this.http.get<any>(`${this.url}/api/PolaznikInstuktor`);
+  }
 }
 
 
