@@ -16,6 +16,7 @@ import { UpdateuserComponent } from './updateuser/updateuser.component';
 import { ControlComponent } from './control/control.component';
 import { StoreModule } from '@ngrx/store';
 import { userReducer } from './store/reducers/user.reducer';
+import { AdminpageComponent } from './adminpage/adminpage.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { userReducer } from './store/reducers/user.reducer';
     ProfileComponent,
     UserlistComponent,
     UpdateuserComponent,
-    ControlComponent
+    ControlComponent,
+    AdminpageComponent
   ],
   imports: [
     BrowserModule,
@@ -44,7 +46,8 @@ import { userReducer } from './store/reducers/user.reducer';
       {path:'login',component:LoginComponent},
       {path:'profile',component:ProfileComponent},
       {path:'user-list',component:UserlistComponent},
-      {path:'control',component:ControlComponent}
+      {path:'control',component:ControlComponent},
+      {path:'dodela',component:AdminpageComponent}
 
     ])
   ],

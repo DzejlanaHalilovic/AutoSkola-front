@@ -59,7 +59,17 @@ export class UserService {
   getAllKategories(){
     return this.http.get<any>(`${this.url}/api/Kategorija`);
   }
+  getPolazniciByTipKategorije(tipKategorije: string) {
+    return this.http.get<any>(`${this.url}/api/User/polaznicikategorija?tipKategorije=${tipKategorije}`);
+  }
 
+  getInstuktoriByTipKategorije(tipKategorije: string) {
+    return this.http.get<any>(`${this.url}/api/User/instuktorikategorija?tipKategorije=${tipKategorije}`);
+  }
 
-
+  getkategorijauser(tipKategorije: string){
+    return this.http.get<any>(`${this.url}//api/User/kategorija?tipKategorije=${tipKategorije}`);
+  }
 }
+
+
