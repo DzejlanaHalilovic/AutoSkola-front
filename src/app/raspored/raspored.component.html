@@ -34,7 +34,11 @@
             <br>
             <td>{{item.instruktorIme}}</td>
             <td>{{item.instruktorPrezime}}</td>
-            <td> <button class="btn btn-primary" (click)="dodelikategoriju()">Dodeli raspored</button></td>
+            <!-- <td> <button class="btn btn-primary" (click)="dodeliraspored()">Dodeli raspored</button></td> -->
+            <td>
+              <button class="btn btn-primary" (click)="openRasporedUnos(item.instruktorId, item.polaznikId)">Dodeli raspored</button>
+            </td>
+
           </tr>
         </tbody>
         <tfoot>

@@ -1,0 +1,44 @@
+.raspored-unos-container {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f5f5f5;
+  margin-top: 40px;
+}
+
+.raspored-unos-container h2 {
+  margin-bottom: 10px;
+  font-size: 18px;
+}
+
+.raspored-unos-container div {
+  margin-bottom: 15px;
+}
+
+.raspored-unos-container label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.raspored-unos-container input[type="date"],
+.raspored-unos-container input[type="time"] {
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+.raspored-unos-container button {
+  padding: 8px 15px;
+  background-color: rgb(0, 149, 255);
+  color: white;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.raspored-unos-container button:hover {
+  background-color: rgb(0, 42, 255);
+}

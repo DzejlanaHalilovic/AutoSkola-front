@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../user.service';
+import { Router } from '@angular/router';
+import { RasporedService } from '../raspored.service';
 @Component({
   selector: 'app-raspored',
   templateUrl: './raspored.component.html',
@@ -7,7 +9,7 @@ import { UserService } from '../user.service';
 })
 export class RasporedComponent implements OnInit {
 
-  constructor(private userService:UserService) { }
+  constructor(private userService:UserService,private route:Router,private rasporedService:RasporedService) { }
 
   userpolaznik:any = [];
   ngOnInit(): void {
@@ -17,7 +19,27 @@ export class RasporedComponent implements OnInit {
       this.userpolaznik = res.data
     },error => console.log(error))
   }
-  dodelikategoriju(){
-    
-  }
+  dodeliraspored(instruktorId: number, polaznikId: number) {
+    const rasporedRequest = {
+      InstruktorId: instruktorId,
+      PolaznikId: polaznikId,
+      DatumVreme: new Date() // Primer za postavljanje datuma i vremena
+    };
+
+    this.rasporedService.postRasporedzakorisnike(rasporedRequest)
+    .subscribe(
+      res => {
+        // Obrada uspešnog odgovora
+        console.log('Raspored je kreiran:', res);
+        // Redirekcija na putanju 'kreirajraspored'
+        //this.route.navigate(['kreirajraspored']);
+      },
+      error => {
+        // Obrada greške
+        console.log('Greška prilikom kreiranja rasporeda:', error);
+      });}
+
+      openRasporedUnos(instruktorId: number, polaznikId: number) {
+        this.route.navigate(['/kreirajraspored', instruktorId, polaznikId]);
+      }
 }

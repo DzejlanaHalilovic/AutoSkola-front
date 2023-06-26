@@ -1,0 +1,12 @@
+<div class="raspored-unos-container ">
+  <h2>Izaberite datum i vreme</h2>
+  <div>
+    <label>Datum:</label>
+    <input type="date" [(ngModel)]="selectedDate">
+  </div>
+  <div>
+    <label>Vreme:</label>
+    <input type="time" [(ngModel)]="selectedTime">
+  </div>
+  <button (click)="dodeliRaspored()">Dodeli raspored</button>
+</div>

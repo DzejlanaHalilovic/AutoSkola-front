@@ -1,0 +1,17 @@
+<div class="container">
+  <div class="card p-4 m-3">
+    <form [formGroup]="forma" (ngSubmit)="createOdsustvo()" class="square-form">
+      <div class="form-group">
+        <label for="razlog">Razlog:</label>
+        <input type="text" id="razlog" class="form-control" formControlName="razlog" required>
+      </div>
+      <div class="form-group">
+        <label for="datumOdsustava">Datum odsustva:</label>
+        <input type="date" id="datumOdsustava" class="form-control" formControlName="datumOdsustava" required>
+      </div>
+      <div class="text-center">
+        <button type="submit" class="btn btn-primary m-3">Kreiraj odsustvo</button>
+      </div>
+    </form>
+  </div>
+</div>

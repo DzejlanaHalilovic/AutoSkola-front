@@ -19,6 +19,8 @@ import { userReducer } from './store/reducers/user.reducer';
 import { AdminpageComponent } from './adminpage/adminpage.component';
 import { KategorijaComponent } from './kategorija/kategorija.component';
 import { RasporedComponent } from './raspored/raspored.component';
+import { OdsustvoComponent } from './odsustvo/odsustvo.component';
+import { KreirajrasporedComponent } from './kreirajraspored/kreirajraspored.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +36,9 @@ import { RasporedComponent } from './raspored/raspored.component';
     ControlComponent,
     AdminpageComponent,
     KategorijaComponent,
-    RasporedComponent
+    RasporedComponent,
+    OdsustvoComponent,
+    KreirajrasporedComponent
 ,  ],
   imports: [
     BrowserModule,
@@ -53,7 +57,9 @@ import { RasporedComponent } from './raspored/raspored.component';
       {path:'control',component:ControlComponent},
       {path:'dodela',component:AdminpageComponent},
       {path:'kategorija',component:KategorijaComponent},
-      {path:'raspored',component:RasporedComponent}
+      {path:'raspored',component:RasporedComponent},
+      {path:'odsustvo',component:OdsustvoComponent},
+      {path:'kreirajraspored/:instruktorId/:polaznikId',component:KreirajrasporedComponent}
 
     ])
   ],

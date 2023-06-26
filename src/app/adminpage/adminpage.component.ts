@@ -27,9 +27,10 @@ export class AdminpageComponent implements OnInit {
   kategorije: any = {}
   idkategorije:number = 2;
   ngOnInit(): void {
-    this.userService.getInstructorList()
+    this.userService. getjoinpolaznik(this.user.painter?.id)
     .subscribe((res:any) => {
       this.instuktori = res;
+      console.log(res);
       console.log(this.instuktori[0].idd, "to je id")
     },
     error => {
@@ -43,6 +44,7 @@ export class AdminpageComponent implements OnInit {
       params => this.id = +(params.get('id')?? "0")
     )
     console.log(this.user)
+
 
 
 

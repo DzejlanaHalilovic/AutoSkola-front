@@ -74,6 +74,10 @@ export class UserService {
   getPolaznikSaInstuktorom(){
     return this.http.get<any>(`${this.url}/api/PolaznikInstuktor`);
   }
+
+  getjoinpolaznik(id:number){
+    return this.http.get<any>(`${this.url}/api/PolaznikInstuktor/dostupni-instruktori/${id}`);
+  }
 }
 
 
