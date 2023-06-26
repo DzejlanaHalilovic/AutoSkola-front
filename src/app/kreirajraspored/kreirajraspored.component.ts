@@ -11,14 +11,40 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class KreirajrasporedComponent implements OnInit {
   selectedDate: string = '';
   selectedTime: string = '';
+
   constructor(private rasporedService:RasporedService,private route: ActivatedRoute,private router:Router) { }
   instruktorId?: number;
   polaznikId?: number;
+  odsustvaInstruktora?: any[];
+odsustvaPolaznika?: any[];
+
   ngOnInit(): void {
     this.route.paramMap.subscribe(params => {
       this.instruktorId = Number(params.get('instruktorId'));
       this.polaznikId = Number(params.get('polaznikId'));
     });
+
+    this.rasporedService.getzakorisnikeodsustvo(this.instruktorId).subscribe(
+      res => {
+        this.odsustvaInstruktora = res;
+        console.log(res);
+      },
+      error => {
+        console.log(error);
+      }
+    );
+
+    this.rasporedService.getzakorisnikeodsustvo(this.polaznikId).subscribe(
+      res => {
+        this.odsustvaPolaznika = res;
+        console.log(res);
+      },
+      error => {
+        console.log(error);
+      }
+    );
+
+
   }
   dodeliRaspored() {
     if (!this.selectedDate || !this.selectedTime) {

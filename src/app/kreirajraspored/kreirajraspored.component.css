@@ -42,3 +42,7 @@
 .raspored-unos-container button:hover {
   background-color: rgb(0, 42, 255);
 }
+.container {
+  width: 1000px;
+  margin-top: 40px;
+}

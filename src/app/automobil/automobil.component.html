@@ -1,0 +1,51 @@
+<div class="container">
+  <div class="card p-4 m-3">
+    <h2 class="mb-4 text-center">Dodaj kategoriju</h2>
+    <form [formGroup]="forma" (ngSubmit)="dodajauto()" class="d-flex flex-column align-items-center">
+      <div class="mb-3 d-flex flex-column align-items-center">
+        <label for="tip" class="form-label">Registraske table</label>
+        <input type="text" class="form-control custom-input" id="regBroj" formControlName="regBroj" required>
+        <div class="invalid-feedback" *ngIf="regBroj.invalid && regBroj.touched">
+          Unesite regist broj auta
+        </div>
+      </div>
+      <div class="mb-3 d-flex flex-column align-items-center">
+        <label for="tip" class="form-label">Model</label>
+        <input type="text" class="form-control custom-input" id="model" formControlName="model" required>
+        <div class="invalid-feedback" *ngIf="model.invalid && model.touched">
+          Unesite model auta
+        </div>
+      </div>
+      <button type="submit" class="btn btn-primary">Dodaj</button>
+    </form>
+  </div>
+</div>
+
+<div class="container">
+  <div class="card p-4 m-3">
+    <h2 class="mb-20 text-center">Dostupna auta</h2>
+  <div class="table-responsive d-flex justify-content-center align-items-center">
+    <table class="table table-striped table-hover table-borderless table-primary align-middle" style="max-width: 400px;">
+      <caption class="table-light"></caption>
+      <thead class="table-light">
+        <tr>
+          <th>Reg broj</th>
+          <th>Model</th>
+          <th>Brisi</th>
+        </tr>
+      </thead>
+      <tbody class="table-group-divider">
+        <tr class="table-primary" *ngFor="let item of auto">
+          <td>{{item.regBroj }}</td>
+          <td>{{ item.model }}</td>
+          <td>
+            <button class="btn btn-primary" (click)="brisiAuto(item.id)">Brisi</button>
+          </td>
+          <td>
+            <button class="btn btn-primary" (click)="otvoriUnosKvara(item.id)">Dodaj kvar</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

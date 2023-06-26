@@ -12,12 +12,16 @@ export class RasporedComponent implements OnInit {
   constructor(private userService:UserService,private route:Router,private rasporedService:RasporedService) { }
 
   userpolaznik:any = [];
+  odsustva: any[] = [];
+
   ngOnInit(): void {
 
     this.userService.getPolaznikSaInstuktorom()
     .subscribe(res => {
       this.userpolaznik = res.data
     },error => console.log(error))
+
+
   }
   dodeliraspored(instruktorId: number, polaznikId: number) {
     const rasporedRequest = {
@@ -42,4 +46,5 @@ export class RasporedComponent implements OnInit {
       openRasporedUnos(instruktorId: number, polaznikId: number) {
         this.route.navigate(['/kreirajraspored', instruktorId, polaznikId]);
       }
+
 }

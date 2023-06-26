@@ -24,6 +24,7 @@
                                 <th>Email</th>
                                 <th>Broj Telefona</th>
                                <th> Tip kategorije</th>
+                               <th>datum rodjenja</th>
                                 <th class="text-end">Update</th>
                                 <th class="text-end">Delete</th>
                             </tr>
@@ -41,6 +42,7 @@
                                 <td>{{user?.email}}</td>
                                 <td><span>{{user?.brojTelefona}}</span></td>
                                   <td>{{user?.tipKategorije}}</td>
+                                  <td>{{user.datumRodjenja | date:'dd.MM.yyyy'}}</td>
 
                                 <td class="text-end">
                                     <div class="drodown">

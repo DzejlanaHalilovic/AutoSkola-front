@@ -1,12 +1,61 @@
-<div class="raspored-unos-container ">
-  <h2>Izaberite datum i vreme</h2>
-  <div>
-    <label>Datum:</label>
-    <input type="date" [(ngModel)]="selectedDate">
+<div class="container">
+  <div class="card p-4 m-7">
+    <div class="row">
+      <!-- Prikaz odsustva instruktora -->
+      <div class="col-md-6">
+        <div *ngIf="odsustvaInstruktora && odsustvaInstruktora.length > 0">
+          <h5>Odsustva instruktora:</h5>
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Razlog</th>
+                <th>Datum odsustva</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let odsustvo of odsustvaInstruktora">
+                <td>{{ odsustvo.razlog }}</td>
+                <td>{{ odsustvo.datumOdsustava | date:'dd.MM.yyyy'}}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Unos rasporeda -->
+      <div class="col-md-6">
+        <div class="raspored-unos-container">
+          <h5>Izaberite datum i vreme</h5>
+          <div>
+            <label>Datum:</label>
+            <input type="date" [(ngModel)]="selectedDate">
+          </div>
+          <div>
+            <label>Vreme:</label>
+            <input type="time" [(ngModel)]="selectedTime">
+          </div>
+          <button (click)="dodeliRaspored()">Dodeli raspored</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Prikaz odsustva polaznika -->
+    <div *ngIf="odsustvaPolaznika && odsustvaPolaznika.length > 0">
+      <h2>Odsustva polaznika:</h2>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Razlog</th>
+            <th>Datum odsustva</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let odsustvo of odsustvaPolaznika">
+            <td>{{ odsustvo.razlog }}</td>
+            <td>{{ odsustvo.datumOdsustava | date:'dd.MM.yyyy' }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   </div>
-  <div>
-    <label>Vreme:</label>
-    <input type="time" [(ngModel)]="selectedTime">
-  </div>
-  <button (click)="dodeliRaspored()">Dodeli raspored</button>
 </div>

@@ -13,5 +13,26 @@ export class RasporedService {
     return this.http.post<any>(`${this.url}/api/Raspored`,raspored);
   }
 
+getOdsustva(){
+  return this.http.get<any>(`${this.url}/api/UserRaspored`)
+}
+getzakorisnikeodsustvo(id:any ){
+  return this.http.get<any>(`${this.url}/api/UserRaspored/odsustva/${id}`);
+}
+createautomobil(auto:any){
+  return this.http.post<any>(`${this.url}/api/Automobil`,auto)
+}
+getAllAutmobil(){
+  return this.http.get<any>(`${this.url}/api/Automobil`)
+}
 
+deleteAutomobil(id:number){
+  return this.http.delete<any>(`${this.url}/api/Automobil/${id}`)
+}
+createKvar(kvar:any){
+  return this.http.post<any>(`${this.url}/api/Kvar`,kvar);
+}
+obrisiKvar(id:number){
+  return this.http.delete<any>(`${this.url}/api/Kvar`);
+}
 }

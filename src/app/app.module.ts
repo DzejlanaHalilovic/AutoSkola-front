@@ -21,6 +21,8 @@ import { KategorijaComponent } from './kategorija/kategorija.component';
 import { RasporedComponent } from './raspored/raspored.component';
 import { OdsustvoComponent } from './odsustvo/odsustvo.component';
 import { KreirajrasporedComponent } from './kreirajraspored/kreirajraspored.component';
+import { AutomobilComponent } from './automobil/automobil.component';
+import { UnosKvaraComponent } from './unos-kvara/unos-kvara.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +40,9 @@ import { KreirajrasporedComponent } from './kreirajraspored/kreirajraspored.comp
     KategorijaComponent,
     RasporedComponent,
     OdsustvoComponent,
-    KreirajrasporedComponent
+    KreirajrasporedComponent,
+    AutomobilComponent,
+    UnosKvaraComponent
 ,  ],
   imports: [
     BrowserModule,
@@ -59,7 +63,9 @@ import { KreirajrasporedComponent } from './kreirajraspored/kreirajraspored.comp
       {path:'kategorija',component:KategorijaComponent},
       {path:'raspored',component:RasporedComponent},
       {path:'odsustvo',component:OdsustvoComponent},
-      {path:'kreirajraspored/:instruktorId/:polaznikId',component:KreirajrasporedComponent}
+      {path:'kreirajraspored/:instruktorId/:polaznikId',component:KreirajrasporedComponent},
+      {path:'dodajauto',component:AutomobilComponent},
+      {path:'unos-kvara/:id',component:UnosKvaraComponent}
 
     ])
   ],

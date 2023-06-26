@@ -1,0 +1,23 @@
+<div class="container">
+  <div class="card p-4 m-3">
+    <h2 class="mb-4 text-center">Unos kvara</h2>
+    <form [formGroup]="forma" (ngSubmit)="kreirajKvar()" class="d-flex flex-column align-items-center">
+      <div class="mb-3 d-flex flex-column align-items-center">
+        <label for="datum" class="form-label">Datum kvara</label>
+        <input type="date" class="form-control custom-input" id="datum" formControlName="datumKvara" required>
+        <div class="invalid-feedback" *ngIf="forma.get('datumKvara')?.invalid && forma.get('datumKvara')?.touched">
+          Unesite datum kvara
+        </div>
+      </div>
+      <div class="mb-3 d-flex flex-column align-items-center">
+        <label for="opis" class="form-label">Opis kvara</label>
+        <input  type ="text" class="form-control custom-input" id="opis" formControlName="
+        opis" required>
+        <div class="invalid-feedback" *ngIf="forma.get('opis')?.invalid && forma.get('opis')?.touched">
+          Unesite opis kvara
+        </div>
+      </div>
+      <button type="submit" class="btn btn-primary">Kreiraj</button>
+    </form>
+  </div>
+</div>
