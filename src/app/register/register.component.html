@@ -158,15 +158,21 @@
                       <div class="mb-3">
                         <label for="" class="form-label">Category as</label>
                         <select class="form-select form-select-lg" name="" id="selectKategorija" (change)="izaberiKategoriju()" >
-                          <option selected [value]="1">A</option>
+                          <!-- <option selected [value]="1">A</option>
                           <option  [value]="2">D</option>
-                          <option [value]="3">B</option>
+                          <option [value]="3">B</option> -->
+                          <option value="-1" selected>Izaberi kategoriju</option>
+                          <option *ngFor="let item of kategorije" value="{{item.id}}">{{item.tip}}</option>
                         </select>
                       </div>
                     </div>
                   </div>
 
-                  
+                  <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
+                    <button type="submit" class="btn btn-primary btn-lg" id="registerButton" (click)="register()" [disabled]="registerForm.invalid">Register</button>
+                  </div>
+
+
 
                 </form>
 

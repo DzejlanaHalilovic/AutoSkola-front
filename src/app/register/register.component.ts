@@ -33,7 +33,7 @@ export class RegisterComponent implements OnInit {
 
     this.userService.getAllKategories()
     .subscribe((res:any) => {
-      this.kategorije= res,
+      this.kategorije= res.data,
       console.log(this.kategorije)
     },
     error  => {
