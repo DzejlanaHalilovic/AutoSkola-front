@@ -23,6 +23,8 @@ import { OdsustvoComponent } from './odsustvo/odsustvo.component';
 import { KreirajrasporedComponent } from './kreirajraspored/kreirajraspored.component';
 import { AutomobilComponent } from './automobil/automobil.component';
 import { UnosKvaraComponent } from './unos-kvara/unos-kvara.component';
+import { InstuktorRasporedComponent } from './instuktor-raspored/instuktor-raspored.component';
+import { PolaznikRasporedComponent } from './polaznik-raspored/polaznik-raspored.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +44,9 @@ import { UnosKvaraComponent } from './unos-kvara/unos-kvara.component';
     OdsustvoComponent,
     KreirajrasporedComponent,
     AutomobilComponent,
-    UnosKvaraComponent
+    UnosKvaraComponent,
+    InstuktorRasporedComponent,
+    PolaznikRasporedComponent
 ,  ],
   imports: [
     BrowserModule,
@@ -66,7 +70,9 @@ import { UnosKvaraComponent } from './unos-kvara/unos-kvara.component';
       {path:'kreirajraspored/:instruktorId/:polaznikId',component:KreirajrasporedComponent},
       {path:'dodajauto',component:AutomobilComponent},
       {path:'unos-kvara/:id',component:UnosKvaraComponent},
-      {path:'update-user/:id',component:UpdateuserComponent}
+      {path:'update-user/:id',component:UpdateuserComponent},
+      {path:'rasporedpolaznik',component:PolaznikRasporedComponent},
+      {path:'rasporedinstuktor',component:InstuktorRasporedComponent}
 
     ])
   ],

@@ -39,4 +39,11 @@ brisiodsutvo(id:any){
   return this.http.delete<any>(`${this.url}/api/UserRaspored/odsustva/${id}`)
 
 }
+rasporedzainstuktora(id:number){
+  return this.http.get<any>(`${this.url}/api/Raspored/instuktor/${id}`);
+}
+rasporezapolaznika(id:number){
+  return this.http.get<any>(`${this.url}/api/Raspored/polaznik/${id}`);
+}
+
 }

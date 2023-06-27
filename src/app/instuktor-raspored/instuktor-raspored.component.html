@@ -1,0 +1,36 @@
+<div class="container">
+  <div class="message-container">
+    <h2>Dobrodošli na raspored časova vožnje!</h2>
+
+    <p >Dragi/a Instukote</p>
+
+    <p>Uspješno vam je dodeljen raspored časova vožnje. Ovo je vaš plan obuke.Želimo da vam sa zadovoljstvom saopštimo da ste deo naše izvanredne ekipe instruktora. Vaša stručnost, predanost i posvećenost su nezamenjivi učinci koje donosite našoj auto-školi.</p>
+    <p>Napredak i zadovoljstvo naših polaznika su u velikoj meri rezultat vašeg rada i predanosti.
+
+      Vaša uloga kao instruktora je dragocena za našu auto-školu. Nastavite da inspirišete naše polaznike i prenosite im znanje i veštine koje će im pomoći da postanu sigurni i odgovorni vozači.</p>
+      <p> Hvala vam što ste deo našeg tima instruktora.</p>
+<p>Vaša stručnost i predanost doprinose našem zajedničkom cilju - obučavanju sigurnih i odgovornih vozača.</p>
+     <p>Želimo vam mnogo uspeha u vašoj katijeri uživajte u svakom času vožnje!</p>
+  </div>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Datum i vreme</th>
+      <th>Polaznik</th>
+      <th>Realizovan čas </th>
+
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let raspored of rasporedi">
+      <td class="date-time">{{ raspored.datumVreme | date:'dd.MM.yyyy HH:mm' }}</td>
+            <td>{{ raspored.polaznikImePrezime }}</td>
+            <td>
+              <button type="button" class="btn btn-primary">Realizovan čas</button>
+            </td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
