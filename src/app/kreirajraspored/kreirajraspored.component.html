@@ -51,7 +51,7 @@
     <div class="col-md-6" style="display: flex; align-items: center;">
     <!-- Prikaz odsustva polaznika -->
     <div *ngIf="odsustvaPolaznika && odsustvaPolaznika.length > 0" >
-    
+
       <div>
         <div style="display: flex; align-items: center;">
           <h5 style="margin-right: 10px;">Odsustva instruktora:</h5>
@@ -76,5 +76,40 @@
       </table>
     </div>
   </div>
+  <div class="col-md-16 " style="display: flex;" id="enlarged-div">
+    <div class="raspored-unos-container text-center" style="margin-bottom: 20px;">
+      <div>
+        <label>Datum:</label>
+        <input type="date" [(ngModel)]="selectedDate">
+      </div>
+
+      <button (click)="filter()" class="filter-button">Filtriraj</button>
+
+      <div *ngIf="filtriraniRasporedi.length > 0" class="filter-results">
+
+        <ul>
+          <li *ngFor="let raspored of filtriraniRasporedi">
+            <p>Datum: {{ raspored.datumVreme  | date:'dd.MM.yyyy HH:mm'}}</p>
+          </li>
+        </ul>
+      </div>
+    </div>
   </div>
+
+<table class="custom-table">
+  <thead>
+    <tr>
+      <th>Polaznik</th>
+      <th>Instruktor</th>
+      <th>Datum i vreme</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let raspored of rasporedi">
+      <td>{{ raspored.polaznikImePrezime }}</td>
+      <td>{{ raspored.instruktorImePrezime }}</td>
+      <td>{{ raspored.datumVreme | date:'dd.MM.yyyy HH:mm' }}</td>
+    </tr>
+  </tbody>
+</table>
 </div>

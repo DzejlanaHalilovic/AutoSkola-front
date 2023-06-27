@@ -3,6 +3,7 @@ import { UserService } from '../user.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { User } from '../interfaces/User';
+import { FormControl, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-adminpage',
@@ -50,11 +51,15 @@ export class AdminpageComponent implements OnInit {
 
 
   }
+  forma = new FormGroup({
+    brojCasova:new FormControl()
+  })
 
   dodajPolaznikaInstruktora(){
     let proba = {
       instruktorId :this.idinstuktora,
       polaznikId:this.user.painter?.id,
+      brojCasova:this.forma.get('brojCasova')?.value
 
     }
     console.log(this.user.painter?.id)

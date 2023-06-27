@@ -39,11 +39,16 @@ brisiodsutvo(id:any){
   return this.http.delete<any>(`${this.url}/api/UserRaspored/odsustva/${id}`)
 
 }
-rasporedzainstuktora(id:number){
+rasporedzainstuktora(id:any){
   return this.http.get<any>(`${this.url}/api/Raspored/instuktor/${id}`);
 }
 rasporezapolaznika(id:number){
   return this.http.get<any>(`${this.url}/api/Raspored/polaznik/${id}`);
 }
-
+rasporezapolaznikatop10(id:any){
+  return this.http.get<any>(`${this.url}/api/Raspored/instuktorfilter/${id}`);
+}
+filterpodatumu(datum:any,id:any){
+  return this.http.get<any>(`${this.url}/api/Raspored/filterpodatumu/${datum}/instukor/${id}`);
+}
 }

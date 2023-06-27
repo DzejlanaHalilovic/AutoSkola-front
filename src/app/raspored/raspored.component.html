@@ -18,13 +18,15 @@
       <thead class="table-light">
 
         <tr>
-          <th>Polaznik ime</th>
-          <th>Polaznik Prezime</th>
-          <th></th>
           <th>Instuktor  ime</th>
           <th>Instuktor prezime</th>
           <th></th>
+
+          <th>Polaznik ime</th>
+          <th>Polaznik Prezime</th>
+          <th></th>
           <th>Dodeli raspored</th>
+          <th>Preostali casovi</th>
         </tr>
         </thead>
         <tbody class="table-group-divider">
@@ -39,6 +41,12 @@
             <br>
             <td>
               <button class="btn btn-primary " (click)="openRasporedUnos(item.instruktorId, item.polaznikId)">Dodeli raspored</button>
+            </td>
+
+            <td>
+              <button type="button" class="btn btn-outline-primary" style="color: black;">  {{item.brojCasova}}</button>
+
+
             </td>
 
           </tr>

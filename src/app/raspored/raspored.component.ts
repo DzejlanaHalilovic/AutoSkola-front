@@ -27,7 +27,7 @@ export class RasporedComponent implements OnInit {
     const rasporedRequest = {
       InstruktorId: instruktorId,
       PolaznikId: polaznikId,
-      DatumVreme: new Date() // Primer za postavljanje datuma i vremena
+      DatumVreme: new Date()
     };
 
     this.rasporedService.postRasporedzakorisnike(rasporedRequest)
