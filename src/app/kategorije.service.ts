@@ -23,4 +23,12 @@ export class KategorijeService {
   getByIdKategorija(id:any){
     return this.http.get<any>(`${this.url}/api/Kategorija/${id}`);
   }
+
+  getFilter(param:any){
+    const params : any = {}
+    params.currPage = param.currPage;
+    params.pageSize = param.pageSize;
+    return this.http.get(`${this.url}/api/Kategorija`, {params});
+
+  }
 }

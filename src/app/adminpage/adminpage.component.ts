@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../user.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { User } from '../interfaces/User';
 
@@ -12,7 +12,7 @@ import { User } from '../interfaces/User';
 export class AdminpageComponent implements OnInit {
 
 
-  constructor(private userService: UserService, private routerActive : ActivatedRoute, private userStorage:Store<{user:User}>) {
+  constructor(private userService: UserService, private routerActive : ActivatedRoute, private userStorage:Store<{user:User}>,private router:Router) {
     this.userStorage.select('user').subscribe(res =>
       {
         this.user = res
@@ -60,6 +60,7 @@ export class AdminpageComponent implements OnInit {
     console.log(this.user.painter?.id)
     this.userService.createinstuktorraspored(proba)
     .subscribe(res => console.log(res),error => console.log(error));
+    this.router.navigate(['/login']);
 
   }
 

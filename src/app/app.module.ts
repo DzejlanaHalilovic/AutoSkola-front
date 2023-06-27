@@ -65,7 +65,8 @@ import { UnosKvaraComponent } from './unos-kvara/unos-kvara.component';
       {path:'odsustvo',component:OdsustvoComponent},
       {path:'kreirajraspored/:instruktorId/:polaznikId',component:KreirajrasporedComponent},
       {path:'dodajauto',component:AutomobilComponent},
-      {path:'unos-kvara/:id',component:UnosKvaraComponent}
+      {path:'unos-kvara/:id',component:UnosKvaraComponent},
+      {path:'update-user/:id',component:UpdateuserComponent}
 
     ])
   ],

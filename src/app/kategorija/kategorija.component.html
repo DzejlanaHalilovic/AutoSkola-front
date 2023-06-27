@@ -9,35 +9,49 @@
           Unesite tip kategorije.
         </div>
       </div>
+      <p style="margin-bottom: 5px;">Unesite sliku kategorije</p>
+      <div class="form-outline mb-3">
+        <input type="file" class="form-control" id="customFile" formControlName="image" />
+      </div>
       <button type="submit" class="btn btn-primary">Dodaj</button>
     </form>
   </div>
 </div>
 
+<div class="place-page">
+  <section style="background-color: #eee;">
+    <div class="container-fluid py-5">
+      <h1 class="text-center mb-5"><strong>Dostupne Kategorije</strong></h1>
+        <div style="display: flex; justify-content: center; flex-wrap: wrap;">
+        <div class="col-lg-3 col-md-12 mb-4 me-2" *ngFor="let image of galleryImages">
+          <div class="bg-image hover-zoom ripple shadow-1-strong rounded">
 
-<div class="container">
-  <div class="card p-4 m-3">
-    <h2 class="mb-4 text-center">Dostupne kategorije</h2>
-  <div class="table-responsive d-flex justify-content-center align-items-center">
-    <table class="table table-striped table-hover table-borderless table-primary align-middle" style="max-width: 400px;">
-      <caption class="table-light"></caption>
-      <thead class="table-light">
-        <tr>
-          <th>Tip Kategorije</th>
-          <th>Obrisi</th>
-        </tr>
-      </thead>
-      <tbody class="table-group-divider">
-        <tr class="table-primary" *ngFor="let item of kategorije">
-          <td scope="row">{{ item.tip }}</td>
-          <td>
-            <button class="btn btn-primary" (click)="brisiKategoriju(item.id)">Brisi</button>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
+            <img *ngIf="image?.putanja" [src]="'https://localhost:7193/images/'+ image.putanja" class="w-100" style="width: 300px; height: 300px;" />
+            <h4>Tip Kategorije {{image.tip}}</h4>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <nav aria-label="Page navigation example" style="display:flex; justify-content:center;">
+    <ul class="pagination">
+      <li class="page-item">
+        <a class="page-link" (click)="setPrevPage()" aria-label="Previous">
+          <span aria-hidden="true">&laquo;</span>
+        </a>
+      </li>
+      <li class="page-item"><a class="page-link" (click)="setCurrPage1(1)">1</a></li>
+      <li class="page-item"><a class="page-link" (click)="setCurrPage1(2)">2</a></li>
+      <li class="page-item"><a class="page-link" (click)="setCurrPage1(3)">3</a></li>
+      <li class="page-item">
+        <a class="page-link" (click)="setNextPage()" aria-label="Next">
+          <span aria-hidden="true">&raquo;</span>
+        </a>
+      </li>
+    </ul>
+  </nav>
 </div>
-
 
 

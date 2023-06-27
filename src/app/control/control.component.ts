@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../user.service';
 import { Router } from '@angular/router';
+import { KategorijeService } from '../kategorije.service';
 
 @Component({
   selector: 'app-control',
@@ -9,10 +10,20 @@ import { Router } from '@angular/router';
 })
 export class ControlComponent implements OnInit {
 
-  constructor(private userService:UserService, private router:Router) { }
+  constructor(private userService:UserService, private router:Router,private kategorijaService:KategorijeService) { }
     users:any = [];
+      kategorije:any = []
   ngOnInit(): void {
     this.getUsers();
+     this.kategorijaService.getAllKategories()
+    .subscribe(res => {
+      this.kategorije = res.data
+      console.log(res)
+    },error => {
+      console.log(error);
+    })
+
+
   }
   getUsers ()
   {
@@ -50,5 +61,13 @@ export class ControlComponent implements OnInit {
       alert("You give up ");
     }
 
+  }
+   brisiKategoriju(id:number){
+    this.kategorijaService.deleteKategorija(id)
+    .subscribe(res => {
+      console.log(res)
+    },error => {
+      console.log(error);
+    })
   }
 }

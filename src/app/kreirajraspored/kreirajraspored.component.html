@@ -2,20 +2,29 @@
   <div class="card p-4 m-7">
     <div class="row">
       <!-- Prikaz odsustva instruktora -->
-      <div class="col-md-6">
+      <div class="col-md-6" style="display: flex; align-items: center;">
         <div *ngIf="odsustvaInstruktora && odsustvaInstruktora.length > 0">
-          <h5>Odsustva instruktora:</h5>
+
+          <div>
+            <div style="display: flex; align-items: center;">
+              <h5 style="margin-right: 10px;">Odsustva instruktora:</h5>
+              <button type="button" class="btn btn-primary" (click)="brisiodsustnostzainstuktora()">Brisi odsustva</button>
+            </div>
+          </div>
+
           <table class="table">
             <thead>
               <tr>
                 <th>Razlog</th>
                 <th>Datum odsustva</th>
+
               </tr>
             </thead>
             <tbody>
               <tr *ngFor="let odsustvo of odsustvaInstruktora">
                 <td>{{ odsustvo.razlog }}</td>
                 <td>{{ odsustvo.datumOdsustava | date:'dd.MM.yyyy'}}</td>
+
               </tr>
             </tbody>
           </table>
@@ -39,9 +48,17 @@
       </div>
     </div>
 
+    <div class="col-md-6" style="display: flex; align-items: center;">
     <!-- Prikaz odsustva polaznika -->
-    <div *ngIf="odsustvaPolaznika && odsustvaPolaznika.length > 0">
-      <h2>Odsustva polaznika:</h2>
+    <div *ngIf="odsustvaPolaznika && odsustvaPolaznika.length > 0" >
+    
+      <div>
+        <div style="display: flex; align-items: center;">
+          <h5 style="margin-right: 10px;">Odsustva instruktora:</h5>
+          <button type="button" class="btn btn-primary" (click)="brisiodsustnostzapolaznika()">Brisi odsustva</button>
+        </div>
+      </div>
+
       <table class="table">
         <thead>
           <tr>
@@ -53,9 +70,11 @@
           <tr *ngFor="let odsustvo of odsustvaPolaznika">
             <td>{{ odsustvo.razlog }}</td>
             <td>{{ odsustvo.datumOdsustava | date:'dd.MM.yyyy' }}</td>
+
           </tr>
         </tbody>
       </table>
     </div>
+  </div>
   </div>
 </div>

@@ -35,4 +35,8 @@ createKvar(kvar:any){
 obrisiKvar(id:number){
   return this.http.delete<any>(`${this.url}/api/Kvar`);
 }
+brisiodsutvo(id:any){
+  return this.http.delete<any>(`${this.url}/api/UserRaspored/odsustva/${id}`)
+
+}
 }

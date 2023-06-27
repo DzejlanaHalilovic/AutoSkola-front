@@ -69,4 +69,21 @@ odsustvaPolaznika?: any[];
     );
   }
 
+  brisiodsustnostzainstuktora(){
+    this.rasporedService.brisiodsutvo(this.instruktorId)
+    .subscribe(res => {
+      console.log(res)
+    },
+    error => console.log(error))
+  }
+
+  brisiodsustnostzapolaznika(){
+    this.rasporedService.brisiodsutvo(this.polaznikId)
+    .subscribe(res => {
+      console.log(res)
+    },
+    error => console.log(error))
+  }
+
+
 }

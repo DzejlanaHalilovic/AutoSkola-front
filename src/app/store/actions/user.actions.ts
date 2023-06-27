@@ -8,7 +8,7 @@ export const login = createAction(
 
 export const logout = createAction('[Navigation Component LogoutUser]');
 
-export const updateUser = createAction( '[Update-user Component] UpdateUser', props<{ painter: any}>()
+export const updateUser = createAction( '[Update-user Component] Updateuser', props<{ painter: any}>()
 );
 export const dodela = createAction( '[Admin-page Component] Adminpage', props<{ painter: any}>()
 );
