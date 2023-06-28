@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../user.service';
+import { AutaService } from '../auta.service';
 
 @Component({
   selector: 'app-userlist',
@@ -8,11 +9,12 @@ import { UserService } from '../user.service';
 })
 export class UserlistComponent implements OnInit {
 
-  constructor(private userService:UserService) { }
+  constructor(private userService:UserService,private autoService:AutaService) { }
 
   learner : any = [];
   instuctor :any = [];
-
+  auta:any = {}
+idauta:any= 1;
 
   getLearnerList(){
     this.userService.getLearnerList()
@@ -36,6 +38,12 @@ export class UserlistComponent implements OnInit {
   ngOnInit(): void {
     this.getInstuctorList()
     this.getLearnerList()
+
+    this.autoService.getAuta()
+    .subscribe(res => {
+      this.auta = res.data;
+      console.log(res);
+    },error => console.log(error));
   }
 
   acceptUser(id:number){
@@ -61,6 +69,12 @@ export class UserlistComponent implements OnInit {
     error => {
       console.log(error);
     })
+  }
+
+  izaberiauto(){
+    console.log("auto");
+    this.idauta = +(document.getElementById('selectAuto')as HTMLInputElement).value;
+    console.log(this.idauta);
   }
 
 }

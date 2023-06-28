@@ -18,7 +18,9 @@
     <tr>
       <th>Datum i vreme</th>
       <th>Polaznik</th>
-      <th>Realizovan čas </th>
+      <th></th>
+      <th></th>
+
 
     </tr>
   </thead>
@@ -27,8 +29,11 @@
       <td class="date-time">{{ raspored.datumVreme | date:'dd.MM.yyyy HH:mm' }}</td>
             <td>{{ raspored.polaznikImePrezime }}</td>
             <td>
-              <button type="button" class="btn btn-primary">Realizovan čas</button>
-            </td>
+              <td>
+                <button type="button" class="btn btn-primary" (click)="oceniCas(raspored.id); obrisiRaspored(raspored.id)">Realizovan čas</button>
+              </td>
+
+
     </tr>
   </tbody>
 </table>

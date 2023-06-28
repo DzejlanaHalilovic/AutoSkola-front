@@ -3,6 +3,7 @@ import { RasporedService } from '../raspored.service';
 import { Store } from '@ngrx/store';
 import { User } from '../interfaces/User';
 import { UserService } from '../user.service';
+import { Raspored } from '../instuktor-raspored/instuktor-raspored.component';
 
 @Component({
   selector: 'app-polaznik-raspored',
@@ -24,6 +25,7 @@ export class PolaznikRasporedComponent implements OnInit {
 
   user: User = {} as User;
   rasporedi: Raspored[] = [];
+  ocene: any[] = [];
 
   ngOnInit(): void {
     this.rasporedService.rasporezapolaznika(this.user.painter.id).subscribe(
@@ -40,15 +42,18 @@ export class PolaznikRasporedComponent implements OnInit {
       },
       (error: any) => console.log(error)
     );
+
+    this.rasporedService.getOceneByPolaznikId(this.user.painter.id).subscribe(
+      (res: any[]) => {
+        this.ocene = res;
+        console.log('Ocene:', res);
+      },
+      (error: any) => console.log(error)
+    );
   }
 
-}
-
-export interface Raspored {
-  id: number;
-  datumVreme: string;
-  instruktorId: number;
-  polaznikId: number;
-  polaznikImePrezime?: string;
-  instruktorImePrezime?: string;
+  getOceneByPolaznikId(rasporedId: number): number {
+    const ocena = this.ocene.find((ocena) => ocena.rasporedId === rasporedId);
+    return ocena ? ocena.ocena : null;
+  }
 }

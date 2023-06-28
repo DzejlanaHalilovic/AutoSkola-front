@@ -17,6 +17,7 @@
     <tr>
       <th>Datum i vreme</th>
       <th>Instruktor</th>
+      <th>Komentar o uspesnosti</th>
 
     </tr>
   </thead>
@@ -24,7 +25,7 @@
     <tr *ngFor="let raspored of rasporedi">
       <td>{{ raspored.datumVreme | date:'dd.MM.yyyy HH:mm' }}</td>
             <td>{{ raspored.instruktorImePrezime }}</td>
-
+            <td>{{ getOceneByPolaznikId(raspored.id) }}</td>
     </tr>
   </tbody>
 </table>

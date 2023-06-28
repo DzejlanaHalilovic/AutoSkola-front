@@ -40,8 +40,35 @@ export class InstuktorRasporedComponent implements OnInit {
       (error: any) => console.log(error)
     );
   }
+  oceniCas(rasporedId: number) {
+    const ocena = prompt('Unesite ocenu:');
+    if (ocena !== null) {
 
-}
+
+        const ocenaRequest = { ocena: ocena, rasporedId: rasporedId };
+        this.rasporedService.createocena(ocenaRequest).subscribe(
+          (res) => {
+            console.log('Ocena uspešno dodata');
+          },
+          (error) => {
+            console.log('Greška prilikom dodavanja ocene:', error);
+          }
+        );
+      } else {
+        console.log('Unesite ispravan broj za ocenu');
+      }
+    }
+
+    obrisiRaspored(rasporedId: number) {
+      const index = this.rasporedi.findIndex(raspored => raspored.id === rasporedId);
+      if (index !== -1) {
+        this.rasporedi.splice(index, 1);
+      }
+    }
+
+  }
+
+
 
 
 export interface Raspored {

@@ -51,4 +51,11 @@ rasporezapolaznikatop10(id:any){
 filterpodatumu(datum:any,id:any){
   return this.http.get<any>(`${this.url}/api/Raspored/filterpodatumu/${datum}/instukor/${id}`);
 }
+createocena(ocena:any){
+  return this.http.post<any>(`${this.url}/api/Cas/ocena`,ocena);
+}
+getOceneByPolaznikId(polaznikId: any) {
+  return this.http.get<any>(`${this.url}/api/Cas/ocene/polaznik/${polaznikId}`);
+}
+
 }
