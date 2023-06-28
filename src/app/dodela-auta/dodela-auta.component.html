@@ -6,12 +6,16 @@
       <div class="form-outline flex-fill mb-0">
         <div class="mb-3">
           <label for="selectinstuktor" class="form-label">Izaberi automobil</label>
-          <select class="form-select form-select-lg" name="" id="selectinstuktor" (change)="dodeli()">
+          <select class="form-select form-select-lg" name="" id="selectAuto" (change)="izaberiauto()">
             <option value="-1" selected>Izaberi auto</option>
             <option *ngFor="let item of auta" value="{{item.id}}">Model auta: {{item.model}} sa registracijom: {{item.regBroj}}</option>
           </select>
         </div>
       </div>
+
     </div>
+  </div>
+  <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
+    <button type="submit" class="btn btn-primary btn-lg" id="registerButton" (click)="dodeli()" >Odaberi</button>
   </div>
 </div>

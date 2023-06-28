@@ -91,10 +91,6 @@ idauta:any= 1;
     })
   }
 
-  izaberiauto(){
-    console.log("auto");
-    this.idauta = +(document.getElementById('selectAuto')as HTMLInputElement).value;
-    console.log(this.idauta);
-  }
+
 
 }

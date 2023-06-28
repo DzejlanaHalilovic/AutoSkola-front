@@ -17,5 +17,8 @@ export class AutaService {
   return this.http.get<any>(`${this.url}/api/Automobil/user/${userId}`);
   }
 
+  createauto(auto:any){
+    return this.http.post<any>(`${this.url}/api/UserAuto`,auto);
+  }
 
 }

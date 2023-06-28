@@ -89,7 +89,6 @@
                                       <th>Email</th>
                                       <th>Phone number</th>
                                       <th>Kategorija</th>
-                                      <th style="border: black;">Dodeli auto</th>
                                       <th>User</th>
                                       <th class="text-end">Accept</th>
                                       <th class="text-end">Decline</th>
@@ -116,12 +115,7 @@
                                       <td>
                                         <span class="d-inline-block align-middle">{{jury?.tipKategorije}}</span>
                                     </td>
-                                    <td>
-                                      <select class="form-select" name="" id="selectAuto" (change)="izaberiauto()">
-                                        <option value="-1" selected>Izaberi auto</option>
-                                        <option *ngFor="let item of auta" [value]="item.kategorijaId">{{ item.model }}</option>
-                                      </select>
-                                    </td>
+
 
 
                                       <td>Instuctor</td>

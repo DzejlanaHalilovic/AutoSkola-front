@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { AutaService } from '../auta.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { UserService } from '../user.service';
 import { Store } from '@ngrx/store';
 import { User } from '../interfaces/User';
+import { FormControl, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-dodela-auta',
@@ -12,7 +13,7 @@ import { User } from '../interfaces/User';
 })
 export class DodelaAutaComponent implements OnInit {
 
-  constructor(private autoService:AutaService,private route: ActivatedRoute, private userService:UserService,private userStorage : Store<{user:User}>,private autaService:AutaService ) {
+  constructor(private route: ActivatedRoute, private userService:UserService,private userStorage : Store<{user:User}>,private autaService:AutaService ,private router:Router) {
     this.userStorage.select('user').subscribe((res) =>
     {
       this.user = res
@@ -34,8 +35,26 @@ export class DodelaAutaComponent implements OnInit {
     console.log(this.user.painter?.id);
 
   }
+  idauta:any= 1;
+  izaberiauto(){
+    console.log("auto");
+    this.idauta = +(document.getElementById('selectAuto')as HTMLInputElement).value;
+    console.log(this.idauta);
+  }
+
   dodeli(){
-    
+    let proba = {
+      instruktorId: this.user.painter.id,
+      automobilId:this.idauta
+
+    }
+    console.log(proba);
+    this.autaService.createauto(proba)
+    .subscribe(res =>
+      console.log(res),
+      error => console.log(error));
+      this.router.navigate(['/login']);
+
   }
 
 
