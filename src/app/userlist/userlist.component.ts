@@ -35,15 +35,35 @@ idauta:any= 1;
       console.log(error);
     })
   }
+   kategorijaId :any = 5;
+
   ngOnInit(): void {
     this.getInstuctorList()
     this.getLearnerList()
 
-    this.autoService.getAuta()
-    .subscribe(res => {
+
+
+  }
+
+
+  userwithauto(userId:any){
+    this.autoService.getAutaByUserId(userId)
+    .subscribe((res:any) => {
       this.auta = res.data;
-      console.log(res);
+      console.log(this.auta);
     },error => console.log(error));
+  }
+
+
+  automobili = []
+  autakategorija(id:any){
+    this.autoService.getAutaByUserId(id)
+    .subscribe(res => {
+      this.auta = res;
+      console.log(this.auta);
+    },error =>  {
+      console.log(error);
+    })
   }
 
   acceptUser(id:number){

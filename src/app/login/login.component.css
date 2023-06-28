@@ -7,6 +7,7 @@ form
   padding: 30px;
   margin-top: 10%;
   border-radius: 3px;
+
   border: 0.5px solid rgba(128, 128, 128, 0.685);
 }
 
@@ -14,6 +15,7 @@ button
 {
   background-color:  #AFBDD2;
   border: none;
+
 }
 
 .btn-google {

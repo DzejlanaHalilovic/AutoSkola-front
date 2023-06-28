@@ -25,6 +25,7 @@ import { AutomobilComponent } from './automobil/automobil.component';
 import { UnosKvaraComponent } from './unos-kvara/unos-kvara.component';
 import { InstuktorRasporedComponent } from './instuktor-raspored/instuktor-raspored.component';
 import { PolaznikRasporedComponent } from './polaznik-raspored/polaznik-raspored.component';
+import { DodelaAutaComponent } from './dodela-auta/dodela-auta.component';
 
 @NgModule({
   declarations: [
@@ -46,7 +47,8 @@ import { PolaznikRasporedComponent } from './polaznik-raspored/polaznik-raspored
     AutomobilComponent,
     UnosKvaraComponent,
     InstuktorRasporedComponent,
-    PolaznikRasporedComponent
+    PolaznikRasporedComponent,
+    DodelaAutaComponent
 ,  ],
   imports: [
     BrowserModule,
@@ -72,7 +74,8 @@ import { PolaznikRasporedComponent } from './polaznik-raspored/polaznik-raspored
       {path:'unos-kvara/:id',component:UnosKvaraComponent},
       {path:'update-user/:id',component:UpdateuserComponent},
       {path:'rasporedpolaznik',component:PolaznikRasporedComponent},
-      {path:'rasporedinstuktor',component:InstuktorRasporedComponent}
+      {path:'rasporedinstuktor',component:InstuktorRasporedComponent},
+      {path:'odaberiauto',component:DodelaAutaComponent}
 
     ])
   ],

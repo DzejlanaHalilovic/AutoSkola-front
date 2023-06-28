@@ -1,0 +1,17 @@
+<div class="message-container">
+  <p>Pre nego što odaberete automobil, želimo vam reći koliko je važno pronaći vozilo koje će biti savršeno prilagođeno vašim potrebama i zahtevima. Ovaj automobil će biti ključni alat u vašem radu sa polaznicima i omogućiće im da steknu veštine i samopouzdanje u vožnji.</p>
+  <div class="centered-div">
+    <div class="d-flex flex-row align-items-center mb-4">
+      <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
+      <div class="form-outline flex-fill mb-0">
+        <div class="mb-3">
+          <label for="selectinstuktor" class="form-label">Izaberi automobil</label>
+          <select class="form-select form-select-lg" name="" id="selectinstuktor" (change)="dodeli()">
+            <option value="-1" selected>Izaberi auto</option>
+            <option *ngFor="let item of auta" value="{{item.id}}">Model auta: {{item.model}} sa registracijom: {{item.regBroj}}</option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

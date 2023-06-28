@@ -1,0 +1,44 @@
+
+.message-container {
+  background-color: #f9f9f9;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 20px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+
+
+p {
+  font-size: 18px;
+  line-height: 1.5;
+  color: #666;
+  margin-bottom: 10px;
+}
+
+.form-outline {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  justify-content: center;
+}
+
+.form-label {
+  font-weight: bold;
+  text-align: center;
+}
+
+.form-select {
+  flex: 1;
+}
+
+.form-check {
+  margin-bottom: 1rem;
+}
+
+.btn-primary {
+  margin-top: 1rem;
+}
+

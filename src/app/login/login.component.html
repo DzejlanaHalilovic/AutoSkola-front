@@ -4,11 +4,12 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 <body>
-  <form [formGroup]="forma">
+  <form [formGroup]="forma" class="text-center">
     <div class="alert alert-dark" role="alert" *ngIf="error">
-     {{errorMsg}}
+      {{errorMsg}}
     </div>
     <!-- Email input -->
     <div class="form-outline mb-4">
@@ -16,9 +17,8 @@
       <input type="email" id="form2Example1" class="form-control" formControlName="email" />
     </div>
     <div *ngIf="email?.touched && email?.invalid">
-      <p class="alert alert-danger " *ngIf="email?.errors?.email">Please enter a valid email form</p>
+      <p class="alert alert-danger" *ngIf="email?.errors?.email">Please enter a valid email form</p>
     </div>
-
 
     <!-- Password input -->
     <div class="form-outline mb-4">
@@ -26,9 +26,7 @@
       <input type="password" id="form2Example2" class="form-control" formControlName="password" />
     </div>
 
-    <div *ngIf="password?.touched && password?.invalid">
-
-    </div>
+    <div *ngIf="password?.touched && password?.invalid"></div>
 
     <!-- 2 column grid layout for inline styling -->
     <div class="row mb-4">
@@ -36,8 +34,11 @@
         <a href="http://localhost:4200/forgot-password">Forgot password?</a>
       </div>
     </div>
+
     <!-- Submit button -->
-    <button type="button" class="btn btn-primary btn-block mb-4"  (click)="login()" >Login</button>
+    <div class="text-center">
+      <button type="button" class="btn btn-primary" style="width: 150px; margin: 0 auto;margin-top: 30px;" (click)="login()">Login</button>
+    </div>
 
     <!-- Register buttons -->
     <div class="text-center">
@@ -47,5 +48,3 @@
   </form>
 </body>
 </html>
-
-

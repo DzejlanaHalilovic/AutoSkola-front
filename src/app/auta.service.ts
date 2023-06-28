@@ -13,6 +13,9 @@ export class AutaService {
   getAuta(){
     return this.http.get<any>(`${this.url}/api/Automobil`);
   }
+  getAutaByUserId(userId:any) {
+  return this.http.get<any>(`${this.url}/api/Automobil/user/${userId}`);
+  }
 
 
 }
