@@ -27,6 +27,7 @@
           <th></th>
           <th>Dodeli raspored</th>
           <th>Preostali casovi</th>
+          <th>Ukloni sa spiska</th>
         </tr>
         </thead>
         <tbody class="table-group-divider">
@@ -46,6 +47,10 @@
             <td>
               <button type="button" class="btn btn-outline-primary" style="color: black;">  {{item.brojCasova}}</button>
 
+
+            </td>
+            <td>
+              <button class="btn btn-primary" (click)="removeRow(item)">Ukloni</button>
 
             </td>
 

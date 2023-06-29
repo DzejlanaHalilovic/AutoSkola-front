@@ -33,18 +33,24 @@ export class RasporedComponent implements OnInit {
     this.rasporedService.postRasporedzakorisnike(rasporedRequest)
     .subscribe(
       res => {
-        // Obrada uspešnog odgovora
+
         console.log('Raspored je kreiran:', res);
-        // Redirekcija na putanju 'kreirajraspored'
         //this.route.navigate(['kreirajraspored']);
       },
       error => {
-        // Obrada greške
         console.log('Greška prilikom kreiranja rasporeda:', error);
       });}
 
       openRasporedUnos(instruktorId: number, polaznikId: number) {
         this.route.navigate(['/kreirajraspored', instruktorId, polaznikId]);
       }
+
+      removeRow(item: any) {
+        const index = this.userpolaznik.indexOf(item);
+        if (index !== -1) {
+          this.userpolaznik.splice(index, 1);
+        }
+      }
+
 
 }
