@@ -20,5 +20,8 @@ export class OdsustvoService {
   getuserodsustvo(id:any){
     return this.http.get<any>(`${this.url}/api/UserRaspored/${id}`)
   }
-  
+  nijeodrzancas(cas:any){
+    return this.http.post<any>(`${this.url}/api/Raspored/nijepostovanraspored`,cas);
+  }
+
 }

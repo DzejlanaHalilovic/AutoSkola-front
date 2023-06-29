@@ -3,6 +3,8 @@ import { RasporedService } from '../raspored.service';
 import { Store } from '@ngrx/store';
 import { UserService } from '../user.service';
 import { User } from '../interfaces/User';
+import { ActivatedRoute } from '@angular/router';
+import { OdsustvoService } from '../odsustvo.service';
 
 @Component({
   selector: 'app-instuktor-raspored',
@@ -13,6 +15,8 @@ export class InstuktorRasporedComponent implements OnInit {
 
   constructor(
     private rasporedService: RasporedService,
+    private route: ActivatedRoute,
+    private odsustvoService:OdsustvoService,
     private userStorage: Store<{ user: User }>,
     private userService: UserService
   ) {
@@ -23,6 +27,7 @@ export class InstuktorRasporedComponent implements OnInit {
   }
 
   user: User = {} as User;
+  polaznikId:any
   rasporedi: Raspored[] = [];
   ngOnInit(): void {
     this.rasporedService.rasporedzainstuktora(this.user.painter.id).subscribe(
@@ -35,10 +40,16 @@ export class InstuktorRasporedComponent implements OnInit {
           const instruktor = await this.userService.getById(raspored.instruktorId).toPromise();
           raspored.polaznikImePrezime = `${polaznik.ime} ${polaznik.prezime}`;
           raspored.instruktorImePrezime = `${instruktor.ime} ${instruktor.prezime}`;
+          raspored.polaznikId = polaznik.id;
         }
       },
       (error: any) => console.log(error)
     );
+
+    this.route.paramMap.subscribe(params => {
+      this.polaznikId = Number(params.get('polaznikId'));
+    });
+
   }
   oceniCas(rasporedId: number) {
     const ocena = prompt('Unesite ocenu:');
@@ -65,6 +76,22 @@ export class InstuktorRasporedComponent implements OnInit {
         this.rasporedi.splice(index, 1);
       }
     }
+
+    neodrzancas() {
+      let neodrzan = {
+        instruktorId: this.user.painter.id,
+        polaznikId: this.rasporedi[0].polaznikId,
+        datumVreme: new Date()
+      };
+
+      this.odsustvoService.nijeodrzancas(neodrzan).subscribe(
+        (res: any) => {
+          console.log(res);
+        },
+        error => console.log(error)
+      );
+    }
+
 
   }
 
