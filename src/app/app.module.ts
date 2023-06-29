@@ -26,6 +26,8 @@ import { UnosKvaraComponent } from './unos-kvara/unos-kvara.component';
 import { InstuktorRasporedComponent } from './instuktor-raspored/instuktor-raspored.component';
 import { PolaznikRasporedComponent } from './polaznik-raspored/polaznik-raspored.component';
 import { DodelaAutaComponent } from './dodela-auta/dodela-auta.component';
+import { DostupnekategorijeComponent } from './dostupnekategorije/dostupnekategorije.component';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -48,7 +50,9 @@ import { DodelaAutaComponent } from './dodela-auta/dodela-auta.component';
     UnosKvaraComponent,
     InstuktorRasporedComponent,
     PolaznikRasporedComponent,
-    DodelaAutaComponent
+    DodelaAutaComponent,
+    DostupnekategorijeComponent,
+    FooterComponent
 ,  ],
   imports: [
     BrowserModule,
@@ -75,7 +79,8 @@ import { DodelaAutaComponent } from './dodela-auta/dodela-auta.component';
       {path:'update-user/:id',component:UpdateuserComponent},
       {path:'rasporedpolaznik',component:PolaznikRasporedComponent},
       {path:'rasporedinstuktor',component:InstuktorRasporedComponent},
-      {path:'odaberiauto',component:DodelaAutaComponent}
+      {path:'odaberiauto',component:DodelaAutaComponent},
+      {path:'dostupnekategorije',component:DostupnekategorijeComponent}
 
     ])
   ],

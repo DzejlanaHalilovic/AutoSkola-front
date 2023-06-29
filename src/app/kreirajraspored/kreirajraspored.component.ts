@@ -13,12 +13,15 @@ import { Raspored } from '../instuktor-raspored/instuktor-raspored.component';
 export class KreirajrasporedComponent implements OnInit {
   selectedDate: string = '';
   selectedTime: string = '';
+  timeRangeStart = '08:00';
+timeRangeEnd = '14:00';
 
   constructor(private rasporedService:RasporedService,private route: ActivatedRoute,private router:Router,private userService:UserService) { }
   instruktorId?: number;
   polaznikId?: number;
-  odsustvaInstruktora?: any[];
+  odsustvaInstruktora?:  any[];
 odsustvaPolaznika?: any[];
+zauzetoVremeError?:boolean = false
 rasporedi: Raspored[] = [];
 
   ngOnInit(): void {
@@ -63,12 +66,48 @@ rasporedi: Raspored[] = [];
     );
 
 
+    // Sortiranje rasporeda po imenu i prezimenu instruktora
+    this.rasporedi.sort((a, b) => {
+      const instruktorA = a?.instruktorImePrezime?.toLowerCase();
+      const instruktorB = b?.instruktorImePrezime?.toLowerCase();
+
+      if (instruktorA && instruktorB) {
+        if (instruktorA < instruktorB) {
+          return -1;
+        }
+        if (instruktorA > instruktorB) {
+          return 1;
+        }
+      }
+      return 0;
+    });
+
+
   }
   dodeliRaspored() {
     if (!this.selectedDate || !this.selectedTime) {
       console.log('Molimo unesite datum i vreme');
       return;
     }
+
+    const rasporedDateTime = new Date(`${this.selectedDate} ${this.selectedTime}`);
+
+    // Provera preklapanja sa rasporedima
+    const zauzetoVreme = this.rasporedi.some(raspored => {
+      const rasporedDateTimeStart = new Date(raspored.datumVreme);
+      const rasporedDateTimeEnd = new Date(raspored.datumVreme);
+      rasporedDateTimeEnd.setHours(rasporedDateTimeEnd.getHours() + 1); // Dodajte 1 sat za trajanje rasporeda (prilagodite prema potrebi)
+
+      return rasporedDateTime >= rasporedDateTimeStart && rasporedDateTime < rasporedDateTimeEnd;
+    });
+
+    if (zauzetoVreme) {
+      this.zauzetoVremeError = true;
+      console.log('Zauzeto vreme');
+      return;
+    }
+
+
 
     const rasporedRequest = {
       InstruktorId: this.instruktorId,
@@ -79,7 +118,7 @@ rasporedi: Raspored[] = [];
     this.rasporedService.postRasporedzakorisnike(rasporedRequest).subscribe(
       res => {
         console.log('Raspored je kreiran:', res);
-        this.router.navigate(['raspored']); // Redirekcija na prethodnu stranicu 'raspored'
+        this.router.navigate(['raspored']);
       },
       error => {
         console.log('Greška prilikom kreiranja rasporeda:', error);
@@ -126,7 +165,23 @@ rasporedi: Raspored[] = [];
       );
   }
 
- 
+  isVremeDostupno(datum: any, vreme: string): boolean {
+    const selectedDateTime = new Date(`${datum}T${vreme}`);
+
+    // Provera preklapanja sa rasporedima
+    for (const raspored of this.rasporedi) {
+      const rasporedDateTime = new Date(raspored.datumVreme);
+      if (selectedDateTime.toDateString() === rasporedDateTime.toDateString()) {
+        return false;
+      }
+    }
+
+    return true;
+  }
+
+
+
+
 
 
   }

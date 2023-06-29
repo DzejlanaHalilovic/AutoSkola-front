@@ -1,0 +1,63 @@
+
+<div class="container db-social">
+  <div class="jumbotron jumbotron-fluid"></div>
+  <div class="container-fluid">
+      <div class="row justify-content-center">
+          <div class="col-xl-12">
+              <div class="widget head-profile has-shadow">
+                  <div class="widget-body pb-0">
+                      <div class="row d-flex align-items-center">
+                          <div class="col-xl-4 col-md-4 d-flex justify-content-lg-start justify-content-md-start justify-content-center">
+                          </div>
+                          <div class="col-xl-26 d-flex justify-content-center">
+                            <div class="infos">
+                              <p class="text-center">
+                                Dobrodošli u našu auto školu, <br>gde pružamo obuku za različite kategorije vozačkih dozvola. Bez obzira da li želite da započnete svoju vozačku karijeru, proširite svoje veštine vožnje ili se pridružite našem timu instruktora, imamo pravu kategoriju za vas. Naš stručni tim instruktora će vam pružiti sve potrebne veštine, znanje i samopouzdanje kako biste postali siguran i odgovoran vozač.
+                                <br>
+                                Ako ste instruktor, pridružite se našem timu i budite deo naše ekipe. Imamo mogućnosti za instruktore sa iskustvom, ali i za one koji žele da započnu svoju instruktorsku karijeru. Pružamo podršku, kontinuirano usavršavanje i mogućnost rada sa različitim polaznicima. Postanite deo našeg tima instruktora i prenesite svoje znanje i strast prema vožnji na nove generacije vozača.
+                                <br>
+                                Zakoračite u svet vozačke obuke sa nama i postignite svoje ciljeve. Prijavite se danas i počnite svoje putovanje ka instruktorskoj ili vozačkoj karijeri!
+                              </p>
+                            </div>
+                          </div>
+
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+     </div>
+
+<section style="background-color: 	#D8D8D8;">
+  <div class="container-fluid py-2">
+    <h1 class="text-center mb-5"><strong>Dostupne Kategorije</strong></h1>
+      <div style="display: flex; justify-content: center; flex-wrap: wrap;">
+      <div class="col-lg-3 col-md-12 mb-4 me-2" *ngFor="let image of galleryImages">
+        <div class="bg-image hover-zoom ripple shadow-1-strong rounded" style="background-color: 	#F0F0F0;">
+
+          <img *ngIf="image?.putanja" [src]="'https://localhost:7193/images/'+ image.putanja" class="w-100" style="width: 300px; height: 300px;" />
+          <h4 style="text-align: center;">Tip Kategorije {{image.tip}}</h4>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+  <nav aria-label="Page navigation example" style="display:flex; justify-content:center;background-color: 	#D8D8D8; margin-bottom: 60px;">
+    <ul class="pagination">
+      <li class="page-item">
+        <a class="page-link" (click)="setPrevPage()" aria-label="Previous">
+          <span aria-hidden="true">&laquo;</span>
+        </a>
+      </li>
+      <li class="page-item"><a class="page-link" (click)="setCurrPage1(1)">1</a></li>
+      <li class="page-item"><a class="page-link" (click)="setCurrPage1(2)">2</a></li>
+      <li class="page-item"><a class="page-link" (click)="setCurrPage1(3)">3</a></li>
+      <li class="page-item">
+        <a class="page-link" (click)="setNextPage()" aria-label="Next">
+          <span aria-hidden="true">&raquo;</span>
+        </a>
+      </li>
+    </ul>
+  </nav>
+</div>
+<app-footer ></app-footer>

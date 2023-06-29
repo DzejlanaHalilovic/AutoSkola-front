@@ -51,6 +51,7 @@ export class ControlComponent implements OnInit {
 
             alert('Your account was deleted')
             this.getUsers();
+            console.log(res);
 
         },
         (error:any)=>
@@ -62,12 +63,5 @@ export class ControlComponent implements OnInit {
     }
 
   }
-   brisiKategoriju(id:number){
-    this.kategorijaService.deleteKategorija(id)
-    .subscribe(res => {
-      console.log(res)
-    },error => {
-      console.log(error);
-    })
-  }
+
 }

@@ -1,8 +1,8 @@
 <div class="container">
-  <div class="card p-4 m-7">
+  <div class="card p-4 m-2">
     <div class="row">
       <!-- Prikaz odsustva instruktora -->
-      <div class="col-md-6" style="display: flex; align-items: center;">
+      <div class="col-md-5" style="display: flex; align-items: center;">
         <div *ngIf="odsustvaInstruktora && odsustvaInstruktora.length > 0">
 
           <div>
@@ -41,12 +41,14 @@
           </div>
           <div>
             <label>Vreme:</label>
-            <input type="time" [(ngModel)]="selectedTime">
+            <input type="time" [(ngModel)]="selectedTime" >
+            <p class="alert alert-danger small-alert" *ngIf="zauzetoVremeError" style="margin-top: 20px;">Zauzeto vreme</p>
+
           </div>
           <button (click)="dodeliRaspored()">Dodeli raspored</button>
         </div>
       </div>
-    </div>
+
 
     <div class="col-md-6" style="display: flex; align-items: center;">
     <!-- Prikaz odsustva polaznika -->
@@ -54,7 +56,7 @@
 
       <div>
         <div style="display: flex; align-items: center;">
-          <h5 style="margin-right: 10px;">Odsustva instruktora:</h5>
+          <h5 style="margin-right: 10px;">Odsustva polaznika:</h5>
           <button type="button" class="btn btn-primary" (click)="brisiodsustnostzapolaznika()">Brisi odsustva</button>
         </div>
       </div>
@@ -76,8 +78,8 @@
       </table>
     </div>
   </div>
-  <div class="col-md-16 " style="display: flex;" id="enlarged-div">
-    <div class="raspored-unos-container text-center" style="margin-bottom: 20px;">
+  <div class="col-md-16 " style="display: flex; " id="enlarged-div">
+    <div class="raspored-unos-container text-center" style="margin-bottom: 20px; width: 500px;">
       <div>
         <label>Datum:</label>
         <input type="date" [(ngModel)]="selectedDate">
@@ -97,6 +99,7 @@
   </div>
 
 <table class="custom-table">
+
   <thead>
     <tr>
       <th>Polaznik</th>

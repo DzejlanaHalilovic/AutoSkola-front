@@ -48,7 +48,9 @@ export class OdsustvoComponent implements OnInit {
     }
     this.odsustvoService.createOdsustvo(odsustvo)
     .subscribe(res => {
+
       console.log(res)
+      this.forma.reset();
     },error => console.log(error))
   }
 
