@@ -13,20 +13,20 @@
         <div class="col-12 mb-3 mb-lg-5" >
             <div class="card table-nowrap table-card" style="overflow-x: scroll; min-width: 400px;">
                 <div class="card-header d-flex justify-content-between align-items-center">
-                    <h5 class="mb-0">Users</h5>
+                    <h5 class="mb-0">Korisnici</h5>
                 </div>
                     <table class="table mb-0">
                         <thead class="small text-uppercase bg-body text-muted">
                             <tr>
                                 <th></th>
-                                <th>User</th>
-                                <th>Surname</th>
+                                <th>Ime</th>
+                                <th>Prezime</th>
                                 <th>Email</th>
                                 <th>Broj Telefona</th>
                                <th> Tip kategorije</th>
-                               <th>datum rodjenja</th>
-                                <th class="text-end">Update</th>
-                                <th class="text-end">Delete</th>
+                               <th>Datum rodjenja</th>
+                                <th class="text-end">Ažuriraj</th>
+                                <th class="text-end">Briši</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -46,12 +46,12 @@
 
                                 <td class="text-end">
                                     <div class="drodown">
-                                        <button (click)="updateUser(user?.id)" >Update</button>
+                                        <button (click)="updateUser(user?.id)" >Ažuriraj</button>
                                     </div>
                                 </td>
                                 <td class="text-end">
                                   <div class="drodown">
-                                      <button (click)="deleteUser(user?.id)">Delete</button>
+                                      <button (click)="deleteUser(user?.id)">Briši</button>
                                   </div>
                               </td>
                             </tr>

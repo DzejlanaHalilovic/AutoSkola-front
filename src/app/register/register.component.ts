@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { UserService } from '../user.service';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { KategorijeService } from '../kategorije.service';
-import { CustomValidator } from './validacija.validators';
+import { CustomValidator, ageValidator, phoneLengthValidator } from './validacija.validators';
 
 @Component({
   selector: 'app-register',
@@ -20,6 +20,8 @@ export class RegisterComponent implements OnInit {
     error:boolean = false;
     registered:boolean = false;
     passwordPattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+    regDatum = /^\d{4}-(0[1-9]|1[0-2])-([0-2][1-9]|3[0-1])(?<!2001)$/;
+
   ngOnInit(): void {
 
     this.userService.getAllRoles()
@@ -60,9 +62,9 @@ export class RegisterComponent implements OnInit {
     password:new FormControl('',[Validators.required,
       Validators.pattern(this.passwordPattern)]),
     confirmPassword:new FormControl('',[Validators.required, CustomValidator.passwordMatchValidator]),
-    dateofbirth: new FormControl('',[Validators.required]),
+    dateofbirth: new FormControl('',[Validators.required,Validators.pattern(this.regDatum)]),
     gender:new FormControl('',[Validators.required]),
-    phonenumber:new FormControl('',[Validators.required])
+    phonenumber:new FormControl('',[Validators.required,  phoneLengthValidator()])
   })
   get name(){
     return this.registerForm.get('name')
@@ -146,4 +148,6 @@ export class RegisterComponent implements OnInit {
         console.log(res),error => console.log(error));
 
     }
+
+
 }

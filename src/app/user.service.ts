@@ -87,7 +87,10 @@ export class UserService {
     }
     return this.http.post<any>(`${this.url}/api/Auth/forgot-password`, email, options);
   }
-
+  changePassword(request : any)
+  {
+    return this.http.post<any>(`${this.url}/api/Auth/reset-password`, request);
+  }
 }
 
 

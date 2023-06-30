@@ -7,67 +7,73 @@
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav me-auto">
           <li class="nav-item">
-            <a class="nav-link active" [routerLink]="['']">Home</a>
+            <a class="nav-link active" [routerLink]="['']">Početna</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" [routerLink]="['about']">About</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" [routerLink]="['profile']" *ngIf="user.token != ''">My profile</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" [routerLink]="['user-list']" >User list</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" [routerLink]="['control']" >Control</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" [routerLink]="['dodela']" >Dodela </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" [routerLink]="['kategorija']" >Kreiraj Kategoriju </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" [routerLink]="['raspored']" >Kreiraj Raspored </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" [routerLink]="['odsustvo']" >Definisi odsustvo </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" [routerLink]="['dodajauto']" >Kreiraj Automobil </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" [routerLink]="['rasporedpolaznik']" >Raspored </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" [routerLink]="['rasporedinstuktor']" >Raspored </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" [routerLink]="['odaberiauto'] " *ngIf="user.token != ''" >Odaberi auto </a>
+            <a class="nav-link" [routerLink]="['about']">
+              O nama</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" [routerLink]="['dostupnekategorije'] " >Kategorije </a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['profile']" *ngIf="user.token != ''">Moj profil</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['user-list']"  *ngIf="user.role == 'Voditelj'">
+              Lista korisnika</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['control']"  *ngIf="user.role == 'Voditelj'">Kontrola</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['dodela']" *ngIf="user.token !== '' && user.role == 'Polaznik'" >Dodela </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['kategorija']"  *ngIf="user.role == 'Voditelj'" >Kreiraj Kategoriju </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['raspored']" *ngIf="user.role == 'Voditelj'" >Kreiraj Raspored </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['odsustvo']"  *ngIf="user.token != '' && user.role == 'Polaznik' && user.role == 'Instruktor'" >Definisi odsustvo </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['dodajauto']" *ngIf="user.role == 'Voditelj'" >Kreiraj Automobil </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['rasporedpolaznik']"  *ngIf="user.token !== '' && user.role == 'Polaznik'">Raspored </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['rasporedinstuktor']"  *ngIf="user.token !== '' && user.role == 'Instuktor'">Raspored </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['odaberiauto']" *ngIf="user.token !== '' && user.role == 'Instuktor'">Odaberi auto</a>
+          </li>
+
         </ul>
 
 
 
          <ul class="navbar-nav">
           <li class="nav-item">
-            <button type="button" class="btn btn-primary me-2" [routerLink]="['register']" *ngIf="!loginService.isLoggedIn()">Sign up</button>
+            <button type="button" class="btn btn-primary me-3 custom-width" [routerLink]="['register']" *ngIf="!loginService.isLoggedIn()">Registracija</button>
+          </li>
+
+          <li class="nav-item">
+            <button type="button" class="btn btn-primary" [routerLink]="['login']" (click)="loginService.logout()" *ngIf="loginService.isLoggedIn()">Odjava</button>
           </li>
           <li class="nav-item">
-            <button type="button" class="btn btn-primary" [routerLink]="['login']" (click)="loginService.logout()" *ngIf="loginService.isLoggedIn()">Logout</button>
-          </li>
-          <li class="nav-item">
-            <button type="button" class="btn btn-primary" [routerLink]="['login']" *ngIf="!loginService.isLoggedIn()" id="loginButton">Login</button>
+            <button type="button" class="btn btn-primary" [routerLink]="['login']" *ngIf="!loginService.isLoggedIn()" id="loginButton">Prijava
+            </button>
           </li>
         </ul>
       </div>
       <div class="collapse" id="navbarToggleExternalContent">
         <div class="bg-dark p-4">
-          <h5 class="text-white h4">Collapsed content</h5>
-          <span class="text-muted">Toggleable via the navbar brand.</span>
+          <h5 class="text-white h4">
+            Sakriveni sadržaj</h5>
+          <span class="text-muted">Moguće je prebacivanje preko brendiranja navigacionog menija.</span>
         </div>
       </div>
     </div>

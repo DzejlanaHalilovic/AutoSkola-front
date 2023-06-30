@@ -29,6 +29,8 @@ import { DodelaAutaComponent } from './dodela-auta/dodela-auta.component';
 import { DostupnekategorijeComponent } from './dostupnekategorije/dostupnekategorije.component';
 import { FooterComponent } from './footer/footer.component';
 import { ForgotpasswordComponent } from './forgotpassword/forgotpassword.component';
+import { ResetPasswordComponent } from './reset-password/reset-password.component';
+import { UnauthorizedComponent } from './unauthorized/unauthorized.component';
 
 @NgModule({
   declarations: [
@@ -54,7 +56,9 @@ import { ForgotpasswordComponent } from './forgotpassword/forgotpassword.compone
     DodelaAutaComponent,
     DostupnekategorijeComponent,
     FooterComponent,
-    ForgotpasswordComponent
+    ForgotpasswordComponent,
+    ResetPasswordComponent,
+    UnauthorizedComponent
 ,  ],
   imports: [
     BrowserModule,
@@ -84,7 +88,10 @@ import { ForgotpasswordComponent } from './forgotpassword/forgotpassword.compone
       {path:'odaberiauto',component:DodelaAutaComponent},
       {path:'dostupnekategorije',component:DostupnekategorijeComponent},
       {path:'forgot-password',component:ForgotpasswordComponent},
-      
+      {path:'change-password/:token',component:ResetPasswordComponent},
+      {path:'unauthorized',component:UnauthorizedComponent}
+
+
 
 
     ])

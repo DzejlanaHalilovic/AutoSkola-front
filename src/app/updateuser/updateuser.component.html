@@ -7,27 +7,29 @@
       <div class="col-md-5 border-right">
           <div class="p-3 py-5">
               <div class="d-flex justify-content-between align-items-center mb-3">
-                  <h4 class="text-right">Profile Settings</h4><br>
+                  <h4 class="text-right">Postavke profila</h4><br>
               </div>
-              <div class="alert alert-success" *ngIf="added">You updated informations successfully!</div>
+              <div class="alert alert-success" *ngIf="added">Uspešno ste ažurirali informacije!
+              </div>
               <div class="row mt-3">
                 <form action="" [formGroup]="updateForm">
-                <div class="col-md-12"><label class="labels">Name</label><input type="text" class="form-control" placeholder="first name"  formControlName="ime" ></div>
+                <div class="col-md-12"><label class="labels">Ime</label><input type="text" class="form-control" placeholder="first name"  formControlName="ime" ></div>
                 <div *ngIf="ime?.touched && ime?.invalid">
-                 <p class="alert alert-danger small-alert" *ngIf="ime?.errors?.required">The name is required</p>
+                 <p class="alert alert-danger small-alert" *ngIf="ime?.errors?.required">Ime je obavezno polje</p>
                 </div>
-                  <div class="col-md-12"><label class="labels">Surname</label><input type="text" class="form-control" value="" placeholder="surname" formControlName="prezime"></div>
+                  <div class="col-md-12"><label class="labels">Prezime</label><input type="text" class="form-control" value="" placeholder="surname" formControlName="prezime"></div>
                   <div *ngIf="prezime?.touched && prezime?.invalid">
-                    <p class="alert alert-danger small-alert" *ngIf="prezime?.errors?.required">The surname is required</p>
+                    <p class="alert alert-danger small-alert" *ngIf="prezime?.errors?.required">Prezime je obavezno polje</p>
                    </div>
                   <div class="col-md-12"><label class="labels">Broj telefona</label><input type="text" class="form-control" placeholder="enter number" value="" formControlName = "brojTelefona"></div>
                   <div *ngIf="brojTelefona?.touched && brojTelefona?.invalid">
-                    <p class="alert alert-danger small-alert" *ngIf="brojTelefona?.errors?.required">The city is required</p>
+                    <p class="alert alert-danger small-alert" *ngIf="brojTelefona?.errors?.required">Broj telefona je obavezno polje</p>
                    </div>
 
                 </form>
               </div>
-              <div class="mt-5 text-left"><button class="btn btn-primary profile-button" type="button" (click)="saveUser()" [disabled]="updateForm.invalid">Save Profile</button></div>
+              <div class="mt-5 text-left"><button class="btn btn-primary profile-button" type="button" (click)="saveUser()" [disabled]="updateForm.invalid">
+                Sačuvaj profil</button></div>
           </div>
       </div>
   </div>

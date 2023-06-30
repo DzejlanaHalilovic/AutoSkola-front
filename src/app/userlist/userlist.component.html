@@ -17,19 +17,20 @@
             <div class="card table-nowrap table-card" style="overflow-x: scroll; min-width: 400px;">
                 <div class="card-header d-flex justify-content-between align-items-center">
                     <h5 class="mb-0">Polaznici</h5>
-                    <a href="#!" class="btn btn-light btn-sm">View All</a>
+                    <a href="#!" class="btn btn-light btn-sm">Prikaži sve</a>
                 </div>
                     <table class="table mb-0">
                         <thead class="small text-uppercase bg-body text-muted">
                             <tr>
-                                <th>Name</th>
-                                <th>Surname</th>
-                                <th>Email</th>
-                                <th>Phone number</th>
-                                <th>Kategorija</th>
-                                <th>User</th>
-                                <th class="text-end">Accept</th>
-                                <th class="text-end">Decline</th>
+
+                      <th>Ime</th>
+                      <th>Prezime</th>
+                      <th>Email</th>
+                      <th>Broj telefona</th>
+                      <th>Kategorija</th>
+                      <th>Korisnik</th>
+                      <th class="text-end">Prihvati</th>
+                      <th class="text-end">Odbij</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -57,12 +58,12 @@
                                 <td>Polaznik</td>
                                 <td class="text-end">
                                     <div class="drodown">
-                                        <button (click)="acceptUser(jury?.id)">Accept</button>
+                                        <button (click)="acceptUser(jury?.id)">Prihvati</button>
                                     </div>
                                 </td>
                                 <td class="text-end">
                                   <div class="drodown">
-                                      <button (click)="declineUser(jury?.id)">Decline</button>
+                                      <button (click)="declineUser(jury?.id)">Odbij</button>
                                   </div>
                               </td>
                             </tr>
@@ -79,20 +80,20 @@
                   <div class="card table-nowrap table-card" style="overflow-x: scroll; min-width: 400px;">
                       <div class="card-header d-flex justify-content-between align-items-center">
                           <h5 class="mb-0">Instuktori</h5>
-                          <a href="#!" class="btn btn-light btn-sm">View All</a>
+                          <a href="#!" class="btn btn-light btn-sm">Prikaži sve</a>
                       </div>
                           <table class="table mb-0">
                               <thead class="small text-uppercase bg-body text-muted">
-                                  <tr>
-                                      <th>Name</th>
-                                      <th>Surname</th>
-                                      <th>Email</th>
-                                      <th>Phone number</th>
-                                      <th>Kategorija</th>
-                                      <th>User</th>
-                                      <th class="text-end">Accept</th>
-                                      <th class="text-end">Decline</th>
-                                  </tr>
+                                <tr>
+                                  <th>Ime</th>
+                                  <th>Prezime</th>
+                                  <th>Email</th>
+                                  <th>Broj telefona</th>
+                                  <th>Kategorija</th>
+                                  <th>Korisnik</th>
+                                  <th class="text-end">Prihvati</th>
+                                  <th class="text-end">Odbij</th>
+                               </tr>
                               </thead>
                               <tbody>
                                   <tr class="align-middle"  *ngFor="let jury of instuctor" >
@@ -121,12 +122,12 @@
                                       <td>Instuctor</td>
                                       <td class="text-end">
                                           <div class="drodown">
-                                              <button (click)="acceptUser(jury?.id)">Accept</button>
+                                              <button (click)="acceptUser(jury?.id)">Prihvati</button>
                                           </div>
                                       </td>
                                       <td class="text-end">
                                         <div class="drodown">
-                                            <button (click)="declineUser(jury?.id)">Decline</button>
+                                            <button (click)="declineUser(jury?.id)">Odbij</button>
                                         </div>
                                     </td>
                                   </tr>
@@ -141,7 +142,7 @@
 
 
         <ng-template #emptyList>
-          <h1 style="display: flex; justify-content: center; margin-top: 20%;" >The list is empty</h1>
+          <h1 style="display: flex; justify-content: center; margin-top: 20%;" >Lista je prazna</h1>
         </ng-template>
     </div>
 </div>

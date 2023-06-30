@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container1">
   <div class="message-container">
     <h2>Dobrodošli na raspored časova vožnje!</h2>
 
@@ -12,15 +12,16 @@
 <p>Vaša stručnost i predanost doprinose našem zajedničkom cilju - obučavanju sigurnih i odgovornih vozača.</p>
      <p>Želimo vam mnogo uspeha u vašoj katijeri uživajte u svakom času vožnje!</p>
   </div>
-
+</div>
+<!-- <div class="container1">
 <table class="table">
   <thead>
     <tr>
       <th>Datum i vreme</th>
       <th>Polaznik</th>
       <th></th>
-      <th></th>
-      <th>Neodrzan čas</th>
+      <th>Održan čas</th>
+      <th>Nije održan čas</th>
 
 
     </tr>
@@ -35,12 +36,59 @@
               </td>
 
               <td>
-                <button type="button" class="btn btn-primary" (click)="neodrzancas(); obrisiRaspored(raspored.id)">Neodrzan cas</button>
+                <button type="button" class="btn btn-primary" (click)="neodrzancas(); obrisiRaspored(raspored.id)">Nije održan cas</button>
               </td>
 
     </tr>
   </tbody>
 </table>
+</div> -->
+
+
+<div class="container">
+  <div class="row">
+    <div class="table-responsive" >
+      <div class="col-12 mb-1 mb-lg-2" >
+          <div class="card table-nowrap table-card" style="overflow-x: scroll; min-width: 400px;">
+              <div class="card-header d-flex justify-content-between align-items-center">
+                  <h5 class="mb-0">Korisnici</h5>
+              </div>
+                  <table class="table mb-0">
+                      <thead class="small text-uppercase bg-body text-muted">
+                          <tr>
+                            <th>Datum i vreme</th>
+                            <th>Polaznik</th>
+                            <th class="text-end">Održan čas</th>
+                            <th class="text-end">Nije održan čas</th>
+                          </tr>
+                      </thead>
+                      <tbody>
+                          <tr class="align-middle" *ngFor="let raspored of rasporedi"  >
+                              <td>{{ raspored.datumVreme | date:'dd.MM.yyyy HH:mm' }}</td>
+                              <td>{{ raspored.polaznikImePrezime }}</td>
+                                       <td class="text-end">
+                                  <div class="drodown">
+                                    <button type="button" class="btn btn-primary" (click)="oceniCas(raspored.id); obrisiRaspored(raspored.id)">Realizovan čas</button>
+                                  </div>
+                              </td>
+                              <td class="text-end">
+                                <div class="drodown">
+                                  <button type="button" class="btn btn-primary" (click)="neodrzancas(); obrisiRaspored(raspored.id)">Nije održan cas</button>
+                                </div>
+                            </td>
+                          </tr>
+                      </tbody>
+                  </table>
+              </div>
+          </div>
+      </div>
+      <ng-template #emptyList>
+        <h1 style="display: flex; justify-content: center; margin-top: 20%;" >The list is empty</h1>
+      </ng-template>
+  </div>
+
+
 </div>
+
 
 <app-footer></app-footer>

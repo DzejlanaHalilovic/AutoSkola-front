@@ -13,16 +13,17 @@
     </div>
     <!-- Email input -->
     <div class="form-outline mb-4">
-      <label class="form-label" for="form2Example1">Email address</label>
+      <label class="form-label" for="form2Example1">Email adresa</label>
       <input type="email" id="form2Example1" class="form-control" formControlName="email" />
     </div>
     <div *ngIf="email?.touched && email?.invalid">
-      <p class="alert alert-danger" *ngIf="email?.errors?.email">Please enter a valid email form</p>
+      <p class="alert alert-danger" *ngIf="email?.errors?.email">
+        Molim unesite validnu email adresu.</p>
     </div>
 
     <!-- Password input -->
     <div class="form-outline mb-4">
-      <label class="form-label" for="form2Example2">Password</label>
+      <label class="form-label" for="form2Example2">Šifra</label>
       <input type="password" id="form2Example2" class="form-control" formControlName="password" />
     </div>
 
@@ -31,7 +32,7 @@
     <!-- 2 column grid layout for inline styling -->
     <div class="row mb-4">
       <div class="col d-flex justify-content-start">
-        <a href="http://localhost:4200/forgot-password">Forgot password?</a>
+        <a href="http://localhost:4200/forgot-password">Zaboravljena lozinka?</a>
       </div>
     </div>
 
@@ -42,7 +43,8 @@
 
     <!-- Register buttons -->
     <div class="text-center">
-      <p>Not a member? <a href="http://localhost:4200/register">Register</a></p>
+      <p>Niste član? <a href="http://localhost:4200/register">
+        Registracija</a></p>
     </div>
 
   </form>

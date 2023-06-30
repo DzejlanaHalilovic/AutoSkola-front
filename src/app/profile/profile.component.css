@@ -1,6 +1,6 @@
 .db-social .jumbotron {
   margin: 0;
-  background: url(https://developer-blogs.nvidia.com/wp-content/uploads/2022/01/AdobeStock_327477069.jpeg);
+  background-color: silver;
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
@@ -281,9 +281,6 @@ button:hover
   font-size: xx-large;
 }
 
-.footer {
-  padding: 10px;
-}
 
 .stats {
   display: flex;
@@ -292,4 +289,7 @@ button:hover
 
 .fa-star {
   font-size: 25px;
+}
+.container  {
+  margin-bottom: 160px;
 }
