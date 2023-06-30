@@ -1,6 +1,6 @@
 <div class="container">
   <div class="card p-4 m-3">
-    <h2 class="mb-4 text-center">Dodaj kategoriju</h2>
+    <h2 class="mb-4 text-center">Dodaj auto</h2>
     <form [formGroup]="forma" (ngSubmit)="dodajauto()" class="d-flex flex-column align-items-center">
       <div class="mb-3 d-flex flex-column align-items-center">
         <label for="tip" class="form-label">Registraske table</label>
@@ -43,11 +43,10 @@
             <button class="btn btn-primary" (click)="brisiAuto(item.id)">Brisi</button>
           </td>
           <td>
-            <button class="btn btn-primary" (click)="otvoriUnosKvara(item.id)">Dodaj kvar</button>
+            <button class="btn btn-primary" (click)="otvoriUnosKvara(item.id)">Kvar</button>
           </td>
         </tr>
       </tbody>
     </table>
   </div>
 </div>
-<app-footer></app-footer>

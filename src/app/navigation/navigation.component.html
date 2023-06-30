@@ -36,7 +36,10 @@
             <a class="nav-link" [routerLink]="['raspored']" *ngIf="user.role == 'Voditelj'" >Kreiraj Raspored </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" [routerLink]="['odsustvo']"  *ngIf="user.token != '' && user.role == 'Polaznik' && user.role == 'Instruktor'" >Definisi odsustvo </a>
+            <a class="nav-link" [routerLink]="['odsustvo']"  *ngIf="user.role == 'Instuktor'"  >Definisi odsustvo </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['odsustvo']"  *ngIf="user.role == 'Polaznik'"  >Definisi odsustvo </a>
           </li>
           <li class="nav-item">
             <a class="nav-link" [routerLink]="['dodajauto']" *ngIf="user.role == 'Voditelj'" >Kreiraj Automobil </a>

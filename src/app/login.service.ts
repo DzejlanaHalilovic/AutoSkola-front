@@ -9,7 +9,8 @@ import { logout } from './store/actions/user.actions';
 })
 export class LoginService {
 
-  url="https://localhost:7193/api/Auth/"
+  //url="https://localhost:7193/api/Auth/"
+  url="http://infromacioni-001-site1.ctempurl.com/api/Auth/"
   constructor(private http:HttpClient, private store: Store<{user: User}>) { }
 
   getCredentials(user:any){
