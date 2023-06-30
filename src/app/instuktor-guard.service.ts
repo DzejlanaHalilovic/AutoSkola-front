@@ -12,14 +12,14 @@ export class InstuktorGuardService {
     this.store.select('user').subscribe(res=> this.user =  res);
   }
   user : User = {} as User
-  canActivate(): boolean {
-    if (this.user?.role == 'Instuktor') {
-      // Ako je korisnik administrator, dozvoli pristup ruti
-      return true;
-    } else {
-      // Ako korisnik nije administrator, preusmjeri na drugu rutu ili prikaži poruku o nedozvoljenom pristupu
-      this.router.navigate(['unauthorized']);
-      return false;
-    }
-  }
+  // canActivate(): boolean {
+  //   if (this.user?.role == 'Instuktor') {
+  //     // Ako je korisnik administrator, dozvoli pristup ruti
+  //     return true;
+  //   } else {
+  //     // Ako korisnik nije administrator, preusmjeri na drugu rutu iali prikaži poruku o nedozvoljenom pristupu
+  //     this.router.navigate(['unauthorized']);
+  //     return false;
+  //   }
+  // }
 }

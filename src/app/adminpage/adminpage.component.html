@@ -1,48 +1,60 @@
 <div class="container" *ngIf="!odabranInstuktor">
+  <p class="text-center">S postovanjem vam dajemo mogucnost da odaberete svog instuktora koji ce vas pratiti kroz vasu obuku, kao i broj časova,
+    Jednom odabrano nema mogucnost da se menja,povodom toga trk do svog instuktora i da sto pre pocnete sa obukom.Pozdrav
+  </p>
+  <div>
+    <div class="d-flex flex-row align-items-center mb-4">
+      <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
+      <div class="form-outline flex-fill mb-0">
 
-<div >
-  <div class="d-flex flex-row align-items-center mb-4">
-    <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
-    <div class="form-outline flex-fill mb-0">
-      <div class="mb-3">
-        <label for="" class="form-label">Izaberi instuktora</label>
-        <select class="form-select form-select-lg" name="" id="selectinstuktor" (change)="izaberiinstuktora()" >
-          <option value="-1" selected>Choose instuktor</option>
-          <option *ngFor="let place of instuktori" value="{{place.id}}">{{place.ime}} {{place.prezime}}</option>
-        </select>
+        <div class="mb-3">
+
+          <label for="" class="form-label">Izaberi instruktora</label>
+          <select class="form-select form-select-lg" name="" id="selectinstuktor" (change)="izaberiinstuktora()">
+            <option value="-1" selected>Choose instruktor</option>
+            <option *ngFor="let place of instuktori" value="{{place.id}}">{{place.ime}} {{place.prezime}}</option>
+          </select>
+        </div>
       </div>
     </div>
+    <form [formGroup]="forma">
+      <div>
+        <div class="mb-3">
+          <label for="" class="form-label" style="margin-left: 15px;">Izaberi broj časova</label>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="brojCasova" id="casovi10" value="10" formControlName="brojCasova">
+            <label class="form-check-label" for="casovi10">
+              10 časova
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="brojCasova" id="casovi20" value="20" formControlName="brojCasova">
+            <label class="form-check-label" for="casovi20">
+              20 časova
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="brojCasova" id="casovi30" value="30" formControlName="brojCasova">
+            <label class="form-check-label" for="casovi20">
+              30 časova
+            </label>
+          </div>
+        </div>
+      </div>
+    </form>
   </div>
-  <form [formGroup]="forma">
-    <div>
-      <div class="mb-3">
-        <label for="" class="form-label">Izaberi broj časova</label>
-        <div class="form-check">
-          <input class="form-check-input" type="radio" name="brojCasova" id="casovi10" value="10" formControlName="brojCasova">
-          <label class="form-check-label" for="casovi10">
-            10 časova
-          </label>
-        </div>
-        <div class="form-check">
-          <input class="form-check-input" type="radio" name="brojCasova" id="casovi20" value="20" formControlName="brojCasova">
-          <label class="form-check-label" for="casovi20">
-            20 časova
-          </label>
-        </div>
-        <div class="form-check">
-          <input class="form-check-input" type="radio" name="brojCasova" id="casovi30" value="30" formControlName="brojCasova">
-          <label class="form-check-label" for="casovi20">
-            30 časova
-          </label>
-        </div>
-      </div>
-    </div>
-</form>
-
-</div>
-<div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
-  <button type="submit" class="btn btn-primary btn-lg" id="registerButton" (click)="dodajPolaznikaInstruktora()" >Odabir</button>
+  <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
+    <button type="submit" class="btn btn-primary btn-lg" id="registerButton" (click)="dodajPolaznikaInstruktora()"  [disabled]="odabranInstuktor">Odabir</button>
+  </div>
 </div>
 
+<div *ngIf="odabranInstuktor" class="selected-instructor">
+  <p class="instructor-info">Vaš instruktor je: {{ selectedInstructor }}</p>
+  <p class="instructor-info">Broj časova: {{ forma.get('brojCasova')?.value }}</p>
 </div>
+
+<div *ngIf="errorMessage" class="alert alert-danger" id="poruka">
+  {{ errorMessage }}
+</div>
+
 <app-footer></app-footer>
