@@ -39,10 +39,9 @@ export class CustomValidator
 }
 
 export function phoneLengthValidator(): ValidatorFn {
-  return (control: AbstractControl): { [key: string]: any } | null => {
+  return (control: AbstractControl): ValidationErrors | null => {
     const phoneNumber = control.value;
-    const validLengths = [9, 10];
-    if (phoneNumber && phoneNumber.length !== 0 && !validLengths.includes(phoneNumber.length)) {
+    if (phoneNumber && phoneNumber.length !== 0 && (phoneNumber.length < 7 || phoneNumber.length > 10)) {
       return { phoneLength: true };
     }
     return null;

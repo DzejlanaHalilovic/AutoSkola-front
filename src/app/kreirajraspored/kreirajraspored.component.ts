@@ -25,6 +25,8 @@ zauzetoVremeError?:boolean = false
 rasporedi: Raspored[] = [];
 
   ngOnInit(): void {
+    this.brisiodsustnostzainstuktora()
+    this.brisiodsustnostzapolaznika()
     this.route.paramMap.subscribe(params => {
       this.instruktorId = Number(params.get('instruktorId'));
       this.polaznikId = Number(params.get('polaznikId'));
@@ -130,6 +132,7 @@ rasporedi: Raspored[] = [];
     this.rasporedService.brisiodsutvo(this.instruktorId)
     .subscribe(res => {
       console.log(res)
+      location.reload();
     },
     error => console.log(error))
   }
@@ -138,6 +141,7 @@ rasporedi: Raspored[] = [];
     this.rasporedService.brisiodsutvo(this.polaznikId)
     .subscribe(res => {
       console.log(res)
+      location.reload();
     },
     error => console.log(error))
   }

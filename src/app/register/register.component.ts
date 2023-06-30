@@ -13,7 +13,7 @@ export class RegisterComponent implements OnInit {
 
   constructor(private userService:UserService, private kategorijaService:KategorijeService) { }
     roles: any = {}
-    id:number = 14;
+    id:number = 2;
     kategorije: any = {}
     idkategorije:number = 2;
     response : any = {}
@@ -64,7 +64,7 @@ export class RegisterComponent implements OnInit {
     confirmPassword:new FormControl('',[Validators.required, CustomValidator.passwordMatchValidator]),
     dateofbirth: new FormControl('',[Validators.required,Validators.pattern(this.regDatum)]),
     gender:new FormControl('',[Validators.required]),
-    phonenumber:new FormControl('',[Validators.required,  phoneLengthValidator()])
+    phonenumber:new FormControl('',[Validators.required,phoneLengthValidator()])
   })
   get name(){
     return this.registerForm.get('name')
