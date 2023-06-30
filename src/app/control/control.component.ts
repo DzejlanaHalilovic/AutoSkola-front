@@ -21,10 +21,14 @@ export class ControlComponent implements OnInit {
       console.log(res)
     },error => {
       console.log(error);
+
     })
 
 
   }
+
+
+ 
   getUsers ()
   {
     this.userService.getUsers()

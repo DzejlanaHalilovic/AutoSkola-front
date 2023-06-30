@@ -29,9 +29,9 @@
                                 <th class="text-end">Briši</th>
                             </tr>
                         </thead>
-                        <tbody>
-                            <tr class="align-middle"  *ngFor="let user of users"  >
-                                <td>
+                        <tbody> <ng-container *ngFor="let user of users; let first = first">
+                          <tr class="align-middle" *ngIf="!first">
+                               <td>
                                   <i class="fas fa-user"></i>
 
                                 </td>
@@ -55,6 +55,7 @@
                                   </div>
                               </td>
                             </tr>
+                          </ng-container>
                         </tbody>
                     </table>
                 </div>
@@ -72,4 +73,3 @@
 </body>
 
 </html>
-<app-footer></app-footer>
