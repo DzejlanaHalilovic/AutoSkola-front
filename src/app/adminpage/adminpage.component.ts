@@ -20,7 +20,7 @@ export class AdminpageComponent implements OnInit {
       })
    }
    user : User = {} as User
-
+   odabranInstuktor: boolean = false;
   instuktori:any = {};
   polaznici:any = {};
   idinstuktora:number = 1
@@ -65,6 +65,7 @@ export class AdminpageComponent implements OnInit {
     console.log(this.user.painter?.id)
     this.userService.createinstuktorraspored(proba)
     .subscribe(res => console.log(res),error => console.log(error));
+    this.odabranInstuktor = true;
     this.router.navigate(['/login']);
 
   }

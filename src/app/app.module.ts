@@ -28,6 +28,7 @@ import { PolaznikRasporedComponent } from './polaznik-raspored/polaznik-raspored
 import { DodelaAutaComponent } from './dodela-auta/dodela-auta.component';
 import { DostupnekategorijeComponent } from './dostupnekategorije/dostupnekategorije.component';
 import { FooterComponent } from './footer/footer.component';
+import { ForgotpasswordComponent } from './forgotpassword/forgotpassword.component';
 
 @NgModule({
   declarations: [
@@ -52,7 +53,8 @@ import { FooterComponent } from './footer/footer.component';
     PolaznikRasporedComponent,
     DodelaAutaComponent,
     DostupnekategorijeComponent,
-    FooterComponent
+    FooterComponent,
+    ForgotpasswordComponent
 ,  ],
   imports: [
     BrowserModule,
@@ -80,7 +82,10 @@ import { FooterComponent } from './footer/footer.component';
       {path:'rasporedpolaznik',component:PolaznikRasporedComponent},
       {path:'rasporedinstuktor',component:InstuktorRasporedComponent},
       {path:'odaberiauto',component:DodelaAutaComponent},
-      {path:'dostupnekategorije',component:DostupnekategorijeComponent}
+      {path:'dostupnekategorije',component:DostupnekategorijeComponent},
+      {path:'forgot-password',component:ForgotpasswordComponent},
+      
+
 
     ])
   ],

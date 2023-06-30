@@ -47,6 +47,7 @@ export class KategorijaComponent implements OnInit {
     this.kategorijaService.createKategorija(formData)
     .subscribe(res => {
       console.log(res)
+      this.forma.reset();
     },error => {
       console.log(error);
     })

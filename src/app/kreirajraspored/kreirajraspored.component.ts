@@ -50,7 +50,7 @@ rasporedi: Raspored[] = [];
       }
     );
 
-    this.rasporedService.rasporezapolaznikatop10(this.instruktorId)
+    this.rasporedService.rasporezapolaznikatop15(this.instruktorId)
     .subscribe(
       async (res: Raspored[]) => {
         this.rasporedi = res;

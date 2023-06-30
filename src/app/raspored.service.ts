@@ -45,7 +45,7 @@ rasporedzainstuktora(id:any){
 rasporezapolaznika(id:number){
   return this.http.get<any>(`${this.url}/api/Raspored/polaznik/${id}`);
 }
-rasporezapolaznikatop10(id:any){
+rasporezapolaznikatop15(id:any){
   return this.http.get<any>(`${this.url}/api/Raspored/instuktorfilter/${id}`);
 }
 filterpodatumu(datum:any,id:any){

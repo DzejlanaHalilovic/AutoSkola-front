@@ -22,7 +22,8 @@ export class DodelaAutaComponent implements OnInit {
   }
   user : User = {} as User
   auta:any = {};
-
+  odabranAutomobil: boolean = false;
+  odabraniAuto: any;
 
 
   ngOnInit(): void {
@@ -52,8 +53,13 @@ export class DodelaAutaComponent implements OnInit {
     this.autaService.createauto(proba)
     .subscribe(res =>
       console.log(res),
+
       error => console.log(error));
-      this.router.navigate(['/login']);
+        this.odabraniAuto = this.auta.find((auto: any) => auto.id === this.idauta);
+
+
+      this.odabranAutomobil = true;
+      this.router.navigate(['/home']);
 
   }
 

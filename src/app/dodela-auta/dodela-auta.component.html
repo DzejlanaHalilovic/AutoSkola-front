@@ -1,4 +1,4 @@
-<div class="message-container">
+<div class="message-container" *ngIf="!odabranAutomobil">
   <p>Pre nego što odaberete automobil, želimo vam reći koliko je važno pronaći vozilo koje će biti savršeno prilagođeno vašim potrebama i zahtevima. Ovaj automobil će biti ključni alat u vašem radu sa polaznicima i omogućiće im da steknu veštine i samopouzdanje u vožnji.</p>
   <div class="centered-div">
     <div class="d-flex flex-row align-items-center mb-4">
@@ -19,3 +19,10 @@
     <button type="submit" class="btn btn-primary btn-lg" id="registerButton" (click)="dodeli()" >Odaberi</button>
   </div>
 </div>
+
+<div *ngIf="odabraniAuto">
+  <h3>Odabrani automobil:</h3>
+  <p>Model: {{odabraniAuto.model}}</p>
+  <p>Registracija: {{odabraniAuto.regBroj}}</p>
+</div>
+<app-footer></app-footer>

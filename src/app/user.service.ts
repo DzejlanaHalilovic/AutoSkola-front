@@ -78,6 +78,16 @@ export class UserService {
   getjoinpolaznik(id:number){
     return this.http.get<any>(`${this.url}/api/PolaznikInstuktor/dostupni-instruktori/${id}`);
   }
+
+  forgotPassword (email : any)
+  {
+    const options =
+    {
+      headers : {'Content-Type': 'application/json'}
+    }
+    return this.http.post<any>(`${this.url}/api/Auth/forgot-password`, email, options);
+  }
+
 }
 
 
