@@ -71,7 +71,8 @@
               "browserTarget": "autoskolaproject:build:production"
             },
             "development": {
-              "browserTarget": "autoskolaproject:build:development"
+              "browserTarget": "autoskolaproject:build:development",
+              "proxyConfig": "src/proxy.conf.json"
             }
           },
           "defaultConfiguration": "development"

@@ -11,6 +11,7 @@ export class LoginService {
 
   //url="https://localhost:7193/api/Auth/"
   url="http://infromacioni-001-site1.ctempurl.com/api/Auth/"
+  //url="http://ajlahe-001-site1.etempurl.com/api/Auth/"
   constructor(private http:HttpClient, private store: Store<{user: User}>) { }
 
   getCredentials(user:any){

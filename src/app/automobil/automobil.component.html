@@ -16,6 +16,21 @@
           Unesite model auta
         </div>
       </div>
+      <div class="d-flex flex-row align-items-center mb-4">
+        <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
+        <div class="form-outline flex-fill mb-0">
+          <div class="mb-3">
+            <label for="" class="form-label">Odaberi kategoriju</label>
+            <select class="form-select form-select-lg" name="" id="selectKategorija" (change)="izaberiKategoriju()" >
+              <!-- <option selected [value]="1">A</option>
+              <option  [value]="2">D</option>
+              <option [value]="3">B</option> -->
+              <option value="-1" selected>Izaberi kategoriju</option>
+              <option *ngFor="let item of kategorije" value="{{item.id}}">{{item.tip}}</option>
+            </select>
+          </div>
+        </div>
+      </div>
       <button type="submit" class="btn btn-primary">Dodaj</button>
     </form>
   </div>

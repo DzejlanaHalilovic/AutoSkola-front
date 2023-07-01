@@ -56,7 +56,7 @@ export class InstuktorRasporedComponent implements OnInit {
     if (ocena !== null) {
 
 
-        const ocenaRequest = { ocena: ocena, rasporedId: rasporedId };
+        const ocenaRequest = { ocena: ocena, rasporedId: rasporedId, InstruktorId:this.user.painter.id };
         this.rasporedService.createocena(ocenaRequest).subscribe(
           (res) => {
             console.log('Ocena uspešno dodata');
